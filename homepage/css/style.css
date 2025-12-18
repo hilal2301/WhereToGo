@@ -1,0 +1,956 @@
+img {
+    max-width: 100%;  /* Kendi kutusundan asla daha geniş olma */
+    height: auto;     /* En-boy oranını bozma */
+}
+
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('../assets/fonts/PixelifySans-Bold.ttf')format('woff2'),
+       url('../assets/fonts/PixelifySans-Regular.woff') format('woff'),'
+       url('../assets/fonts/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+    /* 1. Main Backgrounds */
+    --bg-creamy: #f0e6d2;      /* The light beige background of the main page */
+    --bg-card: #e6d0b3;        /* The slightly darker beige for category cards */
+    
+    /* 2. Sidebar & Dark Elements */
+    --wood-dark: #8b5a2b;      /* The dark wood color for the Sidebar */
+    --wood-light: #a06e3b;     /* Lighter wood for borders or highlights */
+    
+    /* 3. Accents & Buttons */
+    --btn-yellow: #f4c542;     /* The "Book a Table" yellow button */
+    --btn-hover: #ffda6e;      /* A slightly lighter yellow for hover effects */
+    --accent-orange: #c46d42;  /* The reddish-brown color for the "Green Oasis" card */
+    
+    /* 4. Text Colors */
+    --text-dark: #4a3b32;      /* Dark coffee brown (use this instead of black) */
+    --text-light: #fefefe;     /* Off-white text for dark backgrounds */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #e8cdb1;
+    line-height: 1.6;
+    background-color: #eadfc0 !important;
+    background-image:
+        linear-gradient(#D7CCC8 2px, transparent 2px),
+        linear-gradient(90deg, #D7CCC8 2px, transparent 2px) !important;
+    background-size: 100px 100px !important;
+   background-position: center top !important;
+}
+
+nav,.review-author,.rating,.filter-group,.search-btn,.section-title,.footer-bottom,h3,.restaurant-description,.restaurant-info,.restaurant-card,.action-btn,p{font-family: 'Pixelify Sans';}
+
+/* Navigation */
+nav {
+    /* 1. POSITIONING: Sits on top of the Hero Image */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above the image slider */
+
+    /* 2. TRANSPARENCY: Brown tint with 30% opacity */
+    background: rgba(80, 50, 40, 0.3); 
+    
+    /* 3. BLUR EFFECT: Makes it look like "Frosted Glass" */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+
+    /* 4. BORDER: A subtle bottom line for style */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    padding: 20px 0; /* Spacing */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f4e4c1;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #f4e4c1;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d4a373;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #e2cea1;
+    background: transparent;
+    color: #f4e4c1;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: #D0B170;
+    color: #2c2416;
+}
+
+/* Hero Section with Search */
+/* =========================================
+   HERO SECTION (Slider + Search Bar Düzeltmesi)
+   ========================================= */
+
+.hero {
+    position: relative;
+    height: 800px; /* Yükseklik */
+    width: 100%;
+    overflow: hidden;
+    background: #000; /* Resim yüklenmezse siyah fon */
+}
+
+/* 1. Slider: Arka planda tam ekran ve en altta */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* En alt katman */
+}
+
+.hero-slide {
+    position: absolute; /* Yan yana değil üst üste binsinler diye */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Display JS tarafından kontrol edilecek (flex/none) */
+}
+
+/* 2. Overlay: İçerik (Yazı ve Search) Slider'ın üstünde */
+/* HTML'de <div class="hero-overlay-content"> eklediysen burası çalışır */
+.hero-overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Slider'ın üstünde (TIKLANABİLİR ALAN) */
+    
+    /* İçeriği tam ortalamak için */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background: rgba(0, 0, 0, 0.2); /* Yazıların okunması için hafif karartma */
+}
+
+/* Hero Text */
+.hero-text {
+    color: #2c2416;
+    background: rgba(244, 228, 193, 0.95);
+    padding: 2rem;
+    border: 3px solid #d4a373;
+    text-align: center;
+    margin-bottom: 30px; /* Search bar ile mesafe */
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #5c4033;
+}
+
+/* Search Container */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 20; /* En üstte olsun ki yazı yazılabilsin */
+    margin-top: 480px;  /*search barı hizalamak için*/
+}
+
+.search-box {
+    display: flex;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px; /* Hafif yuvarlak köşe */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 600px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #d4a373;
+    background: #fff;
+    font-size: 1rem;
+    font-family: 'Pixelify Sans', serif;
+    color: #5c4033;
+    outline: none;
+}
+
+.search-btn {
+    padding: 1rem 2rem;
+    background: #d4a373;
+    border: none;
+    color: #2c2416;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background: #c59363;
+}
+
+/* Slider Kontrolleri (Noktalar) */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 30; /* Her şeyin en üstünde */
+    padding: 10px;
+    background: rgba(0,0,0,0.1); /* Noktalar belli olsun diye hafif fon */
+    border-radius: 20px;
+}
+
+.slider-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid #d4a373;
+}
+
+.slider-dot.active {
+    background: #d4a373;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px #d4a373;
+}
+
+/* =========================================
+   HERO BİTİŞ
+   ========================================= */
+/* Main Content with Sidebar */
+.main-content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Sidebar Filters */
+.filters-sidebar {
+    background: #edebe4;
+    padding: 1.5rem;
+    border: 8px solid #8d6e63;
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+    border-radius: 30px;
+    box-shadow: 12px 12px 0px rgba(141,110,99,0.4);
+}
+
+.filters-sidebar h3 {
+    color: #3e2723;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-icon {
+    background: #e7debf;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.filter-icon:hover,
+.filter-icon.active {
+    background: #d4a373;
+    border-color: #5c4033;
+    transform: scale(1.05);
+}
+
+.filter-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #a89072;
+    color: #3e2723;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 26px;
+    background: #8b6f47;
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.toggle-switch.active {
+    background: #fcba3f8e;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    top: 3px;
+    left: 3px;
+    transition: all 0.3s;
+}
+
+.toggle-switch.active::after {
+    left: 27px;
+}
+
+/* Featured Categories */
+.content-area {
+    background: #edebe4;
+    padding: 3rem;
+    border: 8px solid #8d6e63;
+    border-radius: 30px;
+    box-shadow: 12px 12px 0px rgba(141,110,99,0.4);
+    margin-top: 2rem;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #3e2723;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    color: #3e2723;
+    letter-spacing: 2px;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-btn {
+    width: 40px;
+    height: 40px;
+    background: #d4a373;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.view-btn:hover {
+    background: #c59363;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.category-card {
+    background: #e7debf;
+    border: 2px solid #a58b81;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);
+    border-radius: 10px;
+}
+.category-card p {
+    color: #a1887f; /* İstediğin renk kodu (Hex) veya ismi */
+    /* Opsiyonel diğer ayarlar: */
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px rgba(161,136,127,0.6);
+    border-color: #8d6e63;
+}
+
+.category-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-size: 1.3rem;
+    color: #3e2723;
+    margin-bottom: 0.5rem;
+}
+
+/* Restaurant Menu Section */
+.menu-section {
+    margin-top: 3rem;
+}
+
+.restaurant-card {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    background: #e7debf;
+    border: 3px solid #d4a373;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);
+    border-radius: 10px;
+}
+
+.restaurant-info h2 {
+    font-size: 2rem;
+    color: #3e2723;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-meta {
+    color: #8b6f47;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.restaurant-description {
+    color: #6d5d4b;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.action-btn.primary {
+    background: #d4a373;
+    color: #2c2416;
+}
+
+.action-btn.secondary {
+    background: #8b6f47;
+    color: #f4e4c1;
+}
+
+.action-btn.tertiary {
+    background: #f4a32b70;
+    color: #fff;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.restaurant-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 40%;           /* Kapsayıcının genişliğini tamamen kapla */
+    height: 200px;         /* Tüm görseller aynı yükseklikte olsun */
+    border-radius: 8px;
+    
+}
+
+.preview-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #6fa8dc 0%, #8fbc8f 100%);
+    border: 2px solid #8b6f47;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 3rem;
+    align-self: flex-start;   /* SADECE bu öğeyi sağa yaslar */
+}
+
+.map-preview {
+    width: 100%;
+    height: 150px;
+    background: #b8d4e8;
+    border: 2px solid #8b6f47;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5c4033;
+    font-weight: bold;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background: #e7debf;
+    padding: 2rem;
+    border: 3px solid #d4a373;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.reviews-header h3 {
+    font-size: 1.5rem;
+    color: #3e2723;
+}
+
+.rating {
+    color: #d4a373;
+    font-size: 1.2rem;
+}
+
+.review-item {
+    background: #fff8e7;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #d4a373;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #5c4033;
+    margin-bottom: 0.5rem;
+}
+
+.review-text {
+    color: #6d5d4b;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #5c4033;
+    color: #f4e4c1;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #d4a373;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #e5d5b7;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #d4a373;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #8b6f47;
+    color: #d4c5a9;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-sidebar {
+        position: static;
+    }
+
+    .restaurant-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.category-card img {
+    width: 100%;          /* Force image to fit the card's width */
+    height: 140px;        /* Set a fixed height so all cards are even */
+    object-fit: cover;    /* MAGIC CODE: Crops the image to fit without squishing */
+    border-radius: 8px;   /* Rounds the corners to look nice */
+    display: block;       /* Removes tiny gap below image */
+}
+
+
+.filter-icon {
+    width: 90px;  /* İkon kutusunun genişliği */
+    height: 90px; /* İkon kutusunun yüksekliği */
+    border-radius: 0%; /* Yuvarlak olması için */
+    overflow: hidden; /* Fotoğraf taşarsa gizle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+}
+
+.filter-icon img {
+    width: 155%;
+    height: 155%;
+    object-fit: cover; /* Fotoğrafı kutuya sığdırır ve yamulmasını engeller */
+}
+
+/* Aktif olan ikon için stil */
+.filter-icon.active {
+    border-color: #ff9900; /* Örnek aktif rengi */
+}
+
+.home-img {
+    width: 45px;  /* İkonun genişliği (isteğe göre 32px veya 48px yapabilirsin) */
+    height: auto; /* Orantıyı koruması için */
+    vertical-align: middle; /* Eğer yanında yazı varsa, yazı ile hizalar */
+}
+
+.home-button {
+    display: flex;          /* Esnek kutu modeli (yan yana dizer) */
+    align-items: center;    /* Dikeyde tam ortalar (resim yukarıda yazı aşağıda kalmaz) */
+    gap: 8px;               /* Resim ile yazı arasındaki boşluk (bunu azaltıp artırabilirsin) */
+    text-decoration: none;  /* Linkin altındaki çizgiyi kaldırır */
+
+    color: white;
+}
+
+/* Ekran genişliği 600px'den küçükse (Telefonlar) */
+@media (max-width: 600px) {
+    
+    /* Home yazısını gizle */
+    .home-button span {
+        display: none; 
+    }
+
+    /* İstersen ikonu biraz büyütebilirsin parmakla basması kolay olsun diye */
+    .home-img {
+        width: 32px; /* Normalde 24px idi, mobilde büyüttük */
+    }
+}
+
+
+/* =========================================
+   ABOUT PAGE SPECIAL STYLES (Journal Style)
+   ========================================= */
+
+/* Arka planı biraz daha kağıt dokusuna benzetelim */
+.about-page-body {
+    background-color: var(--bg-creamy);
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 2px, transparent 2px);
+    background-size: 50px 50px; /* Kareli defter görünümü */
+    background-position: -2px -2px;
+}
+
+/* Hero (Header) Kısmı - Daha kısa */
+.about-hero {
+    height: 400px; /* Ana sayfadan daha kısa */
+    background-image: url('../assets/fonts/img/hero2.jpg'); /* Arka plan resmi */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid var(--wood-dark);
+}
+
+/* Ana Konteyner (Günlük Defteri) */
+.journal-container {
+    max-width: 900px;
+    margin: -50px auto 50px; /* Header'ın üstüne biraz biner */
+    background: #fff8e7;
+    border: 8px solid var(--wood-dark);
+    padding: 3rem;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Vida detayları */
+.journal-container::before, .journal-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--btn-yellow);
+    border: 3px solid var(--wood-dark);
+    border-radius: 50%;
+    top: 20px;
+}
+.journal-container::before { left: 20px; }
+.journal-container::after { right: 20px; }
+
+/* Yazı Stilleri */
+.pixel-heading {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 2.5rem;
+    color: var(--wood-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.entry-content p {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Drop Cap (İlk harfi büyük yapma - Masal kitabı gibi) */
+.drop-cap {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 10px;
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+/* Ayırıcı Çizgi */
+.pixel-divider {
+    border: 0;
+    height: 4px;
+    background: var(--wood-dark);
+    border-bottom: 2px dashed var(--bg-card);
+    margin: 3rem 0;
+    opacity: 0.5;
+}
+
+/* =========================================
+   GUILD MEMBERS (Ekip Kartları)
+   ========================================= */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.member-card {
+    background: var(--bg-card);
+    border: 4px solid var(--wood-dark);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--wood-dark);
+    overflow: hidden;
+    background: #fff;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.member-card h3 {
+    font-family: 'Pixelify Sans', sans-serif;
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.class-badge {
+    display: inline-block;
+    background: var(--wood-dark);
+    color: #fff;
+    padding: 2px 8px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.member-desc {
+    font-size: 0.95rem;
+    color: #5c4033;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .journal-container {
+        margin: 0;
+        border-left: none;
+        border-right: none;
+        padding: 1.5rem;
+    }
+    
+    .about-hero {
+        height: 250px;
+    }
+
+    .pixel-heading {
+        font-size: 1.8rem;
+    }
+}
+
+/* Login butonu ve ikonları kapsayan kutuyu yatay hizala */
+.auth-buttons {
+    display: flex !important;  /* !important ekledik ki kesin çalışsın */
+    align-items: center;       /* Dikeyde ortala */
+    gap: 15px;                 /* Öğeler arası boşluk */
+}
+
+/* Sosyal Medya İkonlarının Ortak Stili */
+.social-btn {
+    color: white;              /* İkon rengi */
+    font-size: 1.4rem;         /* Boyut */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;     /* Alt çizgiyi kaldır */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Üzerine gelince efekt */
+.social-btn:hover {
+    color: #d4a373;            /* Senin temandaki sarımsı renk */
+    transform: scale(1.2);     /* Biraz büyüsün */
+}
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Quest - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+   
+       <nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/fonts/img/homefoto.png" alt="Logosu" class="logo-img">
+            <span class="logo-text">Where to go</span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            
+            <li>
+                <a href="login.html" class="auth-buttons">Log In / Sign</a>
+            </li>
+            </ul>
+    </div>
+</nav>
+    <div class="main-container">
+        <!-- Login Container -->
+        <div class="container">
+            <div class="pixel-icon"></div>
+            <h2>LOG IN</h2>
+            <p class="subtitle"> Welcome to Where To Go </p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn">Start Adventure</button>
+                
+                <div class="link">
+                    <a onclick="alert('Password reset feature coming soon!')">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sign Up Container -->
+        <div class="container">
+            <div class="pixel-icon"></div>
+            <h2>SIGN UP</h2>
+            <p class="subtitle"> Become a New Traveler </p>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Traveler Name</label>
+                    <input type="text" id="signupName" placeholder="Your Knight Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn">Join the Guild</button>
+                
+                <div class="link">
+                    Already a member? <a onclick="alert('Use the login form!')">Log In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
