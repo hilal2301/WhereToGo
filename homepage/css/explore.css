@@ -1,0 +1,378 @@
+/* ============================================================
+   1. VARIABLES & FONTS
+============================================================ */
+:root {
+    --primary-beige: #E6C9A8;
+    --dark-brown: #6B4E3D;
+    --medium-brown: #8B6F5C;
+    --soft-orange: #E8A87C;
+    --cream: #F5E6D3;
+}
+
+@font-face {
+    font-family: 'Pixelify Sans';
+    src: url('../assets/fonts/PixelifySans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================================
+   2. GLOBAL STYLES (BACKGROUND & TYPOGRAPHY)
+============================================================ */
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #eadfc0 !important;
+    background-image:
+        linear-gradient(#D7CCC8 2px, transparent 2px),
+        linear-gradient(90deg, #D7CCC8 2px, transparent 2px) !important;
+    background-size: 140px 140px !important;
+    background-position: center top !important;
+    color: #392822 !important;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+.logo-text,
+.hero-title,
+nav,
+.auth-buttons,
+.section-title,
+.card-title,
+.filter-btn {
+    font-family: 'Pixelify Sans', sans-serif !important;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 28px !important;
+    color: #5D4037 !important;
+    text-shadow: 2px 2px #D2B48C !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 20px !important;
+}
+
+/* ============================================================
+   3. NAVIGATION BAR (FROSTED GLASS)
+============================================================ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(80, 50, 40, 0.3) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 0 !important;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #f8f8f8 !important;
+    font-size: 1.7rem !important;
+    font-weight: bold;
+}
+
+.home-img {
+    height: 45px !important;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem !important;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #f4e4c1 !important;
+    text-decoration: none;
+    font-size: 1rem !important;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4a373 !important;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px !important;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem !important;
+    border: 2px solid #ffffff !important;
+    background: transparent;
+    color: #fafafa !important;
+    text-decoration: none;
+    font-size: 1rem !important;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #D0B170 !important;
+    color: #2c2416 !important;
+}
+
+.social-btn {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* ============================================================
+   4. HERO SECTION
+============================================================ */
+.hero {
+    position: relative;
+    height: 55vh;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(to right, rgba(230, 201, 168, 0.75), rgba(230, 201, 168, 0.2)),
+        url("../assets/fonts/img/exploreBACK.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--dark-brown);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   5. MAIN CONTAINERS (COMPACT FIX)
+============================================================ */
+.popular-places .container,
+.influencer-picks .container,
+.category-filter .container,
+.selected-filter {
+    background-color: #edebe4 !important;
+    max-width: 1250px !important;
+    width: 90% !important;
+    margin: 80px auto 3rem !important;
+    border: 8px solid #8D6E63 !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    box-shadow: 12px 12px 0px rgba(141, 110, 99, 0.4) !important;
+
+}
+
+/* ============================================================
+   6. CARDS (PLACES & INFLUENCERS)
+============================================================ */
+.places-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    justify-content: flex-start !important;
+}
+
+.place-card {
+    flex: 0 0 340px !important;
+    background-color: #e7debf !important;
+    border: 4px solid var(--dark-brown) !important;
+    border-radius: 8px !important;
+    box-shadow: 6px 6px 0px rgba(107, 78, 61, 0.4) !important;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 8px 8px 0px rgba(161, 136, 127, 0.6) !important;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px !important;
+    position: relative;
+}
+
+.place-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.25rem;
+    border-top: 2px solid #A1887F !important;
+}
+
+.card-title {
+    font-size: 1.3rem !important;
+    color: #3E2723 !important;
+    margin-bottom: 8px !important;
+}
+
+.card-description {
+    font-size: 14px !important;
+    color: #613210 !important;
+}
+
+/* Influencer Styles */
+.influencers-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.influencer-card {
+    flex: 1;
+    min-width: 280px;
+    background: #FFF8F0 !important;
+    border: 4px solid var(--dark-brown) !important;
+    border-radius: 8px !important;
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0px rgba(107, 78, 61, 0.4) !important;
+    display: flex;
+    align-items: center;
+}
+
+.influencer-avatar-img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+    border: 4px solid #361B08;
+    image-rendering: pixelated;
+    object-fit: cover;
+    margin-right: 1.5rem;
+}
+
+/* ============================================================
+   7. FILTERS & BUTTONS
+============================================================ */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    background-color: #FFFFFF !important;
+    border: 3px solid #A1887F !important;
+    color: #5D4037 !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    box-shadow: 4px 4px 0px rgba(161, 136, 127, 0.3) !important;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: #e77e5e !important;
+    color: #ffffff !important;
+    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ============================================================
+   8. RESPONSIVE DESIGN
+============================================================ */
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        display: none !important;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .place-card {
+        flex: 0 0 280px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 400px;
+    }
+
+    .container {
+        width: 95% !important;
+    }
+}
+
+/* ============================================================
+   🔥 POPULARITY KUTUCUK (BADGE) TASARIMI 🔥
+============================================================ */
+
+.popularity-badge {
+
+    position: absolute !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 10 !important;
+
+    /* 2. Kutucuk Görünümü */
+    background-color: #FFF8F0 !important;
+    border: 3px solid #361B08 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+
+
+
+    font-family: 'Pixelify Sans', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    color: #361B08 !important;
+    text-transform: uppercase !important;
+
+
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2) !important;
+
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+
+.fire-icon {
+    font-size: 14px !important;
+}

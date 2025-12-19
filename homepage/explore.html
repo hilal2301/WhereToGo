@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore New Places</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/explore.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="home-button">
+                <img src="assets/fonts/img/homefoto.png" alt="HomePage" class="home-img">
+                <span>Where To Go</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="explore.html" class="active">Explore</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Help</a></li>
+            </ul>
+
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Log In / Sign</a>
+
+                <a href="https://www.instagram.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://twitter.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburger" style="display:none;">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="explore.html" class="active">EXPLORE</a></li>
+            <li><a href="contact.html">HELP</a></li>
+        </ul>
+    </div>
+
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line-1">EXPLORE</span>
+                <span class="title-line-2">NEW PLACES</span>
+            </h1>
+        </div>
+    </section>
+
+
+
+
+    <section class="popular-places">
+        <div class="container">
+            <h2 class="section-title">POPULAR SPOTS THİS WEEK</h2>
+            <div class="places-scroll-container" id="placesContainer">
+                <div class="places-wrapper" id="placesWrapper">
+                    <article class="place-card">
+                        <div class="card-image cafe-image">
+                            <img src="assets/fonts/img/pera.jpeg" alt="Minoa" class="place-img"> <span
+                                class="popularity-badge"></span>
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span>
+                                Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+
+                            <div class="card-header">
+                                <h3 class="card-title">Minoa Pera Bookstore</h3>
+
+                                <div class="card-rating">
+                                    <span class="star">⭐</span>
+                                    <span class="rating-value">4.8</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Beyoğlu</p>
+                            <p class="card-description">Elegant streets with historic buildings, stylish cafés, and a
+                                lively city atmosphere. A perfect mix of history and modern life.</p>
+                        </div>
+                    </article>
+
+                    <article class="place-card">
+                        <div class="card-image nature-image">
+                            <img src="assets/fonts/img/ermirgan.jpeg" alt="" class="place-img">
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span>
+                                Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Emirgan Grove</h3>
+                                <div class="card-rating">
+                                    <span class="star">⭐</span>
+                                    <span class="rating-value">4.8</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Sarıyer</p>
+                            <p class="card-description">A peaceful green escape with colorful flowers and stunning views
+                                of the Bosphorus. Especially beautiful in spring.</p>
+
+                        </div>
+                    </article>
+
+                    <article class="place-card">
+                        <div class="card-image nature-image">
+                            <img src="assets/fonts/img/zeyrekhane.jpeg" alt="" class="place-img">
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span> Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Zeyrekhane</h3>
+
+                            <div class="card-rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                            <p class="card-location">📍 Fatih</p>
+                            <p class="card-description">A hidden gem with deep history and a quiet, authentic Istanbul
+                                vibe. Ideal for cultural exploration.</p>
+                        </div>
+                    </article>
+
+
+                    <article class="place-card">
+                        <div class="card-image mountain-image">
+                            <img src="assets/fonts/img/moda.jpeg" alt="" class="place-img">
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span> Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Moda Coastal Park</h3>
+                            <div class="card-rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-value">4.5</span>
+                            </div>
+                            <p class="card-location">📍 Kadıköy</p>
+                            <p class="card-description">A relaxing seaside walk with fresh air and wide views of the
+                                sea. Great for sunsets and slow walks.</p>
+                        </div>
+                    </article>
+
+                    <article class="place-card">
+                        <div class="card-image mountain-image">
+                            <img src="assets/fonts/img/pierloti.jpeg" alt="" class="place-img">
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span>
+                                Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Pierre Loti Hill</h3>
+                                <div class="card-rating">
+                                    <span class="star">⭐</span>
+                                    <span class="rating-value">4.7</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Eyüpsultan</p>
+                            <p class="card-description">A romantic hilltop with breathtaking views over the Golden Horn.
+                                Calm, scenic, and unforgettable.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="place-card">
+                        <div class="card-image cafe-image">
+                            <img src="assets/fonts/img/sultanahmet.jpeg" alt="" class="place-img">
+                            <span class="popularity-badge">
+                                <span class="fire-icon">🔥</span>
+                                Popularity
+                            </span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Sultanahmet</h3>
+                                <div class="card-rating">
+                                    <span class="star">⭐</span>
+                                    <span class="rating-value">4.9</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Fatih</p>
+                            <p class="card-description">A timeless historic area filled with iconic landmarks and a deep
+                                sense of history.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="influencer-picks">
+        <div class="container">
+            <h2 class="section-title">INFLUENCER'S CHOİCE</h2>
+            <div class="influencers-container">
+                <article class="influencer-card">
+                    <img src="assets/fonts/img/saliha.jpeg" alt="Alex Johnson" class="influencer-avatar-img">
+
+                    <div class="influencer-info">
+                        <h3 class="influencer-name">Saliha Bozok</h3>
+                        <p class="influencer-recommendation">Recommended cafe "Zeyrekhane"</p>
+                    </div>
+                </article>
+
+                <article class="influencer-card">
+                    <img src="assets/fonts/img/mert.jpeg" alt="Alex Johnson" class="influencer-avatar-img">
+
+                    <div class="influencer-info">
+                        <h3 class="influencer-name">Mert Yazıcıoğlu</h3>
+                        <p class="influencer-recommendation">Recommended "The Sultanahmet mosque"</p>
+                    </div>
+                </article>
+
+                <article class="influencer-card">
+                    <img src="assets/fonts/img/kıvanç.jpeg" alt="Alex Johnson" class="influencer-avatar-img">
+
+                    <div class="influencer-info">
+                        <h3 class="influencer-name">Kıvanç Tatlıtuğ</h3>
+                        <p class="influencer-recommendation">Recommended "Moda Coastal Park"</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <script src="explore.js"></script>
+
+
+    </div>
+</body>
