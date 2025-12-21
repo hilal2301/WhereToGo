@@ -1,31 +1,18 @@
-
-
-/* CSS VARIABLES & ROOT STYLES */
+/* ============================================================
+   1. VARIABLES & FONTS
+============================================================ */
 :root {
     --primary-beige: #E6C9A8;
-    --secondary-beige: #D4B59E;
     --dark-brown: #6B4E3D;
     --medium-brown: #8B6F5C;
-    --light-brown: #A88F7C;
-    --pastel-green: #9DB896;
     --soft-orange: #E8A87C;
     --cream: #F5E6D3;
-    --white: #FFFFFF;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-full: 50%;
-    --shadow-sm: 0 2px 8px rgba(107, 78, 61, 0.1);
-    --shadow-md: 0 4px 16px rgba(107, 78, 61, 0.15);
-    --shadow-lg: 0 8px 24px rgba(107, 78, 61, 0.2);
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
+}
+
+@font-face {
+    font-family: 'Pixelify Sans';
+    src: url('../assets/fonts/PixelifySans-Regular.ttf') format('truetype');
+    font-weight: 400;
 }
 
 * {
@@ -38,237 +25,133 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ============================================================
+   2. GLOBAL STYLES (BACKGROUND & TYPOGRAPHY)
+============================================================ */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, var(--primary-beige), var(--cream));
-    color: var(--dark-brown);
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #eadfc0 !important;
+    background-image:
+        linear-gradient(#D7CCC8 2px, transparent 2px),
+        linear-gradient(90deg, #D7CCC8 2px, transparent 2px) !important;
+    background-size: 140px 140px !important;
+    background-position: center top !important;
+    color: #392822 !important;
     line-height: 1.6;
     overflow-x: hidden;
-
-    
 }
 
-/* NAVIGATION BAR */
+h1,
+.logo-text,
+.hero-title,
+nav,
+.auth-buttons,
+.section-title,
+.card-title,
+.filter-btn {
+    font-family: 'Pixelify Sans', sans-serif !important;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 28px !important;
+    color: #5D4037 !important;
+    text-shadow: 2px 2px #D2B48C !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 20px !important;
+}
+
+/* ============================================================
+   3. NAVIGATION BAR (FROSTED GLASS)
+============================================================ */
 nav {
-    /* 1. POSITIONING: Sits on top of the Hero Image */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensures it stays above the image slider */
-
-    /* 2. TRANSPARENCY: Brown tint with 30% opacity */
-    background: rgba(80, 50, 40, 0.3); 
-    
-    /* 3. BLUR EFFECT: Makes it look like "Frosted Glass" */
+    z-index: 1000;
+    background: rgba(80, 50, 40, 0.3) !important;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari support */
-
-    /* 4. BORDER: A subtle bottom line for style */
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    
-    padding: 20px 0; /* Spacing */
+    padding: 20px 0 !important;
 }
+
 .nav-container {
     display: flex;
     justify-content: space-between;
-    /* Logo sola, Linkler ortaya, Profil sağa */
     align-items: center;
-    max-width: 1800px;
-    width: 95%;
-    margin: 0 auto;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #f8f8f8 !important;
+    font-size: 1.7rem !important;
+    font-weight: bold;
+}
+
+.home-img {
+    height: 45px !important;
+    width: auto;
 }
 
 .nav-links {
     display: flex;
+    gap: 2rem !important;
     list-style: none;
-    gap: 3rem;
-    align-items: center;
 }
 
 .nav-links a {
+    color: #f4e4c1 !important;
     text-decoration: none;
-    color: #F4E4C1;
-    /* Linkler açık renk olsun ki koyu zeminde okunsun */
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+    font-size: 1rem !important;
+    transition: color 0.3s;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--soft-orange);
-    transition: width var(--transition-normal);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
+.nav-links a:hover,
 .nav-links a.active {
-    color: var(--dark-brown);
-    font-weight: 600;
+    color: #d4a373 !important;
 }
 
-.nav-links a:hover {
-    color: #FFA500;
-    /* Üzerine gelince turuncu olsun */
-}
-
-/* --- SAĞ: PROFİL / BUTON --- */
-.nav-right {
+.auth-buttons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px !important;
 }
 
-.profile-avatar {
-    display: flex;
-    align-items: center;
-}
-
-.avatar-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: var(--radius-full);
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-}
-
-.avatar-circle:hover {
-    transform: scale(1.05);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--dark-brown);
-    border-radius: 2px;
-    transition: var(--transition-normal);
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--primary-beige);
-    box-shadow: var(--shadow-lg);
-    z-index: 999;
-    transition: right var(--transition-normal);
-    padding-top: 80px;
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-.mobile-nav-links {
-    list-style: none;
-    padding: 2rem;
-}
-
-.mobile-nav-links li {
-    margin-bottom: 2rem;
-}
-
-.mobile-nav-links a {
-    color: var(--dark-brown);
+.btn {
+    padding: 0.5rem 1.5rem !important;
+    border: 2px solid #ffffff !important;
+    background: transparent;
+    color: #fafafa !important;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: var(--transition-fast);
+    font-size: 1rem !important;
+    transition: all 0.3s;
+    cursor: pointer;
 }
 
-.mobile-nav-links a.active {
-    color: var(--soft-orange);
-    font-weight: 600;
+.btn:hover {
+    background: #D0B170 !important;
+    color: #2c2416 !important;
 }
 
-/* Logo Kapsayıcısı */
-.logo {
+.social-btn {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
-    color: #F4E4C1;
-    /* Açık krem rengi yazı */
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
 }
 
-.logo:hover {
-    transform: scale(1.05);
-    /* Üzerine gelince hafif büyüsün */
-}
-
-/* Pusula İkonu Ayarları */
-.compass-icon {
-    font-size: 1.8rem;
-    /* İkon boyutu */
-    display: flex;
-    align-items: center;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* "Where to go" Yazı Ayarları */
-.logo-text {
-    font-family: 'Poppins', sans-serif;
-    /* Sizin fontunuz */
-    font-size: 1.4rem;
-    /* Yazı boyutu */
-    font-weight: 700;
-    /* Kalınlık (Bold) */
-    color: var(--dark-brown);
-    /* Yazı rengi */
-    letter-spacing: -0.5px;
-    /* Harfleri hafifçe birbirine yaklaştırır */
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-    /* Hafif beyaz gölge ile okunurluğu artırır */
-}
-
-.logo-icon {
-    font-size: 1.8rem;
-}
-
-/* HERO SECTION */
+/* ============================================================
+   4. HERO SECTION
+============================================================ */
 .hero {
     position: relative;
     height: 55vh;
@@ -276,40 +159,10 @@ nav {
     display: flex;
     align-items: center;
     overflow: hidden;
-
-
-    background-image:
-        linear-gradient(to right,
-            rgba(230, 201, 168, 0.75),
-            rgba(230, 201, 168, 0.2)),
+    background-image: linear-gradient(to right, rgba(230, 201, 168, 0.75), rgba(230, 201, 168, 0.2)),
         url("../assets/fonts/img/exploreBACK.jpeg");
-
     background-size: cover;
     background-position: center;
-}
-
-
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 80% 50%, rgba(157, 184, 150, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(232, 168, 124, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(230, 201, 168, 0.4), transparent);
 }
 
 .hero-content {
@@ -319,7 +172,6 @@ nav {
     margin: 0 auto;
     padding: 0 3rem;
     width: 100%;
-    animation: fadeInUp 1s ease-out;
 }
 
 .hero-title {
@@ -331,190 +183,80 @@ nav {
     flex-direction: column;
 }
 
-.title-line-1 {
-    color: var(--dark-brown);
+/* ============================================================
+   5. MAIN CONTAINERS (COMPACT FIX)
+============================================================ */
+.popular-places .container,
+.influencer-picks .container,
+.category-filter .container,
+.selected-filter {
+    background-color: #edebe4 !important;
+    max-width: 1250px !important;
+    width: 90% !important;
+    margin: 80px auto 3rem !important;
+    border: 8px solid #8D6E63 !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    box-shadow: 12px 12px 0px rgba(141, 110, 99, 0.4) !important;
+
 }
 
-.title-line-2 {
-    color: var(--medium-brown);
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container {
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-section {
-    padding: var(--spacing-xl) 0;
-}
-
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--dark-brown);
-    margin-bottom: var(--spacing-lg);
-}
-
-/* POPULAR PLACES SECTION */
-.popular-places {
-    background: transparent;
-}
-
-.places-scroll-container {
-    position: relative;
-    overflow: hidden;
-}
-
+/* ============================================================
+   6. CARDS (PLACES & INFLUENCERS)
+============================================================ */
 .places-wrapper {
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     padding-bottom: 1rem;
-    cursor: grab;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-}
-
-.places-wrapper::-webkit-scrollbar {
-    display: none;
+    justify-content: flex-start !important;
 }
 
 .place-card {
-    flex: 0 0 400px;
-    background: var(--white);
-    border-radius: var(--radius-md);
+    flex: 0 0 340px !important;
+    background-color: #e7debf !important;
+    border: 4px solid var(--dark-brown) !important;
+    border-radius: 8px !important;
+    box-shadow: 6px 6px 0px rgba(107, 78, 61, 0.4) !important;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .place-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px) !important;
+    box-shadow: 8px 8px 0px rgba(161, 136, 127, 0.6) !important;
 }
 
 .card-image {
+    width: 100%;
+    height: 200px !important;
     position: relative;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
-.cafe-image {
-    background: linear-gradient(135deg, #8B6F5C 0%, #A88F7C 100%);
-    background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 11px),
-        repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 11px),
-        linear-gradient(135deg, #8B6F5C 0%, #A88F7C 50%, #6B4E3D 100%);
-}
-
-.nature-image {
-    background: linear-gradient(135deg, #9DB896 0%, #7FA978 100%);
-    background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px),
-        repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px),
-        linear-gradient(135deg, #9DB896 0%, #7FA978 50%, #6B8F5E 100%);
-}
-
-.mountain-image {
-    background: linear-gradient(135deg, #87CEEB 0%, #6BA3C8 100%);
-    background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px),
-        repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px),
-        linear-gradient(135deg, #87CEEB 0%, #6BA3C8 50%, #5A8AA8 100%);
-}
-
-.popularity-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--dark-brown);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: var(--shadow-sm);
-}
-
-.fire-icon {
-    font-size: 1rem;
+.place-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card-content {
     padding: 1.25rem;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    border-top: 2px solid #A1887F !important;
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--dark-brown);
-}
-
-.card-rating {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.star {
-    font-size: 1.1rem;
-}
-
-.rating-value {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark-brown);
-}
-
-.card-location {
-    font-size: 0.9rem;
-    color: var(--medium-brown);
-    margin-bottom: 0.75rem;
+    font-size: 1.3rem !important;
+    color: #3E2723 !important;
+    margin-bottom: 8px !important;
 }
 
 .card-description {
-    font-size: 0.9rem;
-    color: var(--light-brown);
-    line-height: 1.5;
+    font-size: 14px !important;
+    color: #613210 !important;
 }
 
-/* INFLUENCER PICKS SECTION */
-.influencer-picks {
-    background: transparent;
-}
-
+/* Influencer Styles */
 .influencers-container {
     display: flex;
     gap: 2rem;
@@ -523,1536 +265,114 @@ section {
 
 .influencer-card {
     flex: 1;
-    flex-wrap: wrap;
     min-width: 280px;
-    background: var(--white);
-    border-radius: var(--radius-md);
+    background: #FFF8F0 !important;
+    border: 4px solid var(--dark-brown) !important;
+    border-radius: 8px !important;
     padding: 1.5rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: 6px 6px 0px rgba(107, 78, 61, 0.4) !important;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    transition: transform var(--transition-normal);
 }
 
-.influencer-card:hover {
-    transform: translateY(-4px);
+.influencer-avatar-img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+    border: 4px solid #361B08;
+    image-rendering: pixelated;
+    object-fit: cover;
+    margin-right: 1.5rem;
 }
 
-.influencer-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-full);
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-
-.avatar-content {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-.pink-avatar {
-    background: linear-gradient(135deg, #FFB6C1, #FFA0B4);
-}
-
-.purple-avatar {
-    background: linear-gradient(135deg, #DDA0DD, #CC88CC);
-}
-
-.green-avatar {
-    background: linear-gradient(135deg, #98D8C8, #7BC8B8);
-}
-
-.influencer-info {
-    flex: 1;
-}
-
-.influencer-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--dark-brown);
-    margin-bottom: 0.25rem;
-}
-
-.influencer-recommendation {
-    font-size: 0.9rem;
-    color: var(--light-brown);
-}
-
-/* CATEGORY FILTER SECTION */
-.category-filter {
-    background: transparent;
-    justify-content: flex-start;
-}
-
+/* ============================================================
+   7. FILTERS & BUTTONS
+============================================================ */
 .filter-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    justify-content: flex-start;
 }
 
-.filter-btn {
-    background: var(--white);
-    border: 2px solid transparent;
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--dark-brown);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-sm);
-}
-
-.filter-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.filter-btn.active {
-    background: var(--soft-orange);
-    color: var(--white);
-    border-color: var(--soft-orange);
-    box-shadow: var(--shadow-md);
-}
-
-.filter-icon {
-    font-size: 1.5rem;
-}
-
-.selected-filter {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    font-size: 0.95rem;
-    color: var(--dark-brown);
-}
-
-.selected-filter strong {
-    color: var(--soft-orange);
-    font-weight: 600;
-}
-
-/* RESPONSIVE DESIGN */
-@media screen and (max-width: 1024px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-
-    .place-card {
-        flex: 0 0 320px;
-    }
-
-    .influencers-container {
-        flex-direction: column;
-    }
-
-    .influencer-card {
-        min-width: 100%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hero {
-        height: 400px;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-content {
-        padding: 0 2rem;
-    }
-
-    .place-card {
-        flex: 0 0 280px;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .filter-buttons {
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-
-    .hero {
-        height: 350px;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-        text-align: center;
-    }
-
-    .hero-content {
-        padding: 0 1.5rem;
-        text-align: center;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-
-    section {
-        padding: 2rem 0;
-    }
-
-    .place-card {
-        flex: 0 0 85vw;
-    }
-
-    .influencer-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .filter-btn {
-        flex: 1 1 calc(50% - 0.5rem);
-        justify-content: center;
-        min-width: 140px;
-    }
-
-    .selected-filter {
-        text-align: center;
-    }
-
-
-}
-
-@media screen and (min-width: 1200px) {
-
-    body {
-        font-size: 18px;
-    }
-
-    /* HERO */
-    .hero {
-        height: 60vh;
-        min-height: 480px;
-    }
-
-    .hero-title {
-        font-size: 6.5rem;
-    }
-
-    .hero-content {
-        padding-left: 4rem;
-    }
-
-    /* SECTIONS */
-    section {
-        padding: 5rem 0;
-    }
-
-    .section-title {
-        font-size: 2.4rem;
-        margin-bottom: 3rem;
-    }
-
-    /* POPULAR CARDS */
-    .place-card {
-        flex: 0 0 500px;
-    }
-
-    .card-image {
-        height: 350px;
-    }
-
-    .card-title {
-        font-size: 1.8rem;
-    }
-
-    .card-description {
-        font-size: 1rem;
-    }
-
-    /* INFLUENCER */
-    .influencers-container {
-        gap: 5rem;
-    }
-
-    .influencer-card {
-        padding: 2.5rem;
-        min-height: 200px;
-    }
-
-    .influencer-name {
-        font-size: 1.5rem;
-    }
-
-    /* FILTERS */
-    .filter-btn {
-        font-size: 1.05rem;
-        padding: 0.9rem 1.8rem;
-    }
-
-    .container {
-        max-width: 1600px;
-    }
-
-}
-
-.full-width {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 5rem 0;
-}
-
-.popular-places .container,
-.influencer-picks .container,
-.category-filter .container {
-    max-width: 1600px;
-    padding: 0 1rem;
-}
-
-.category-filter .filter-buttons {
-    gap: 1.5rem;
-}
-
-/* Konteyneri genişletiyoruz ki kenarlara yapışmasın ama yayılsın */
-.container {
-    max-width: 95% !important;
-    /* Ekranın %95'ini kullansın */
-    padding: 0 2rem;
-}
-
-/* Büyük ekranlarda (Desktop) daha da rahatlasın */
-@media screen and (min-width: 1400px) {
-    .container {
-        max-width: 1800px !important;
-    }
-}
-
-
-/* =========================================
-   MASAÜSTÜ İÇİN EKSTRA BÜYÜTME AYARLARI
-========================================= */
-
-/* 1. Konteyner: Ekranı İyice Doldursun */
-.container {
-    max-width: 96% !important;
-    /* Ekranın %96'sını kaplasın */
-    padding: 0 2rem;
-}
-
-/* Geniş ekranlarda (1400px ve üzeri) daha da genişlesin */
-@media screen and (min-width: 1400px) {
-    .container {
-        max-width: 1920px !important;
-    }
-
-    /* Bölüm başlıkları devleşsin */
-    .section-title {
-        font-size: 3rem !important;
-        margin-bottom: 3rem !important;
-    }
-}
-
-/* =========================================
-   POPÜLER MEKAN KARTLARI
-========================================= */
-/* Kartların temel boyutunu artırıyoruz */
-.place-card {
-    flex: 0 0 450px;
-    /* Temel genişlik arttı */
-}
-
-.card-image {
-    height: 300px;
-    /* Resim yüksekliği arttı */
-}
-
-/* Geniş Ekranda (1200px üzeri) İyice Büyüt */
-@media screen and (min-width: 1200px) {
-    .place-card {
-        flex: 0 0 550px !important;
-        /* Kartlar 550px genişliğinde olacak! */
-        box-shadow: 0 8px 24px rgba(107, 78, 61, 0.15) !important;
-        /* Gölgeyi belirginleştir */
-    }
-
-    .card-image {
-        height: 380px !important;
-        /* Resimler kocaman oldu */
-    }
-
-    .card-content {
-        padding: 2rem !important;
-        /* İç boşluk arttı */
-    }
-
-    .card-title {
-        font-size: 2rem !important;
-        /* Başlıklar çok daha büyük */
-    }
-
-    .rating-value {
-        font-size: 1.2rem !important;
-    }
-
-    .card-location,
-    .card-description {
-        font-size: 1.1rem !important;
-        /* Açıklama yazıları daha okunaklı */
-    }
-
-    .popularity-badge {
-        font-size: 1rem !important;
-        padding: 8px 16px !important;
-    }
-}
-
-/* =========================================
-   INFLUENCER KARTLARI
-========================================= */
-/* Geniş Ekranda (1200px üzeri) */
-@media screen and (min-width: 1200px) {
-    .influencers-container {
-        gap: 3rem !important;
-        /* Kartlar arası boşluk */
-    }
-
-    .influencer-card {
-        padding: 3rem !important;
-        /* Kart içi boşluk */
-        min-height: 220px;
-        /* Yükseklik */
-        border-radius: 24px !important;
-    }
-
-    .influencer-avatar {
-        width: 120px !important;
-        /* Profil resmi büyüdü */
-        height: 120px !important;
-    }
-
-    .influencer-name {
-        font-size: 1.6rem !important;
-        /* İsimler büyüdü */
-    }
-
-    .influencer-recommendation {
-        font-size: 1.2rem !important;
-        /* Öneri yazısı büyüdü */
-    }
-}
-
-/* =========================================
-   KATEGORİ BUTONLARI
-========================================= */
-/* Geniş Ekranda (1200px üzeri) */
-@media screen and (min-width: 1200px) {
-    .filter-buttons {
-        gap: 1.5rem !important;
-    }
-
-    .filter-btn {
-        padding: 1.2rem 2.5rem !important;
-        /* Butonları iyice şişirdik */
-        font-size: 1.3rem !important;
-        /* Yazı boyutu arttı */
-        border-radius: 60px !important;
-    }
-
-    .filter-icon {
-        font-size: 1.6rem !important;
-        /* İkonlar büyüdü */
-    }
-
-    .selected-filter {
-        font-size: 1.2rem !important;
-        padding: 1.2rem 2rem !important;
-    }
-}
-
-/* =========================================
-   DEVASA (GIANT) MOD - MASAÜSTÜ İÇİN
-========================================= */
-
-/* 1. Konteyner: Ekranın TAMAMINI Kullansın */
-.container {
-    max-width: 98% !important;
-    /* Kenarlarda çok az boşluk kalsın */
-    padding: 0 1.5rem;
-}
-
-/* 2. Başlıkları İyice Büyütelim */
-@media screen and (min-width: 1200px) {
-    .section-title {
-        font-size: 3.5rem !important;
-        /* Başlıklar çok büyük */
-        margin-bottom: 3.5rem !important;
-        margin-left: 1rem;
-        /* Sola çok yapışmasın */
-    }
-}
-
-/* =========================================
-   POPÜLER MEKAN KARTLARI (KOCAMAN)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .place-card {
-        /* Kart genişliği: Neredeyse ekranın 1/3'ü kadar */
-        flex: 0 0 650px !important;
-        border-radius: 30px !important;
-        /* Köşeler daha yuvarlak */
-        box-shadow: 0 15px 40px rgba(107, 78, 61, 0.2) !important;
-        /* Daha derin gölge */
-    }
-
-    .card-image {
-        height: 450px !important;
-        /* Resim yüksekliği çok arttı */
-    }
-
-    .card-content {
-        padding: 2.5rem !important;
-        /* İçerik boşluğu */
-    }
-
-    .card-title {
-        font-size: 2.4rem !important;
-        /* Kart başlığı */
-        margin-bottom: 0.5rem !important;
-    }
-
-    .rating-value {
-        font-size: 1.5rem !important;
-    }
-
-    .star {
-        font-size: 1.5rem !important;
-    }
-
-    .card-location {
-        font-size: 1.3rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-
-    .card-description {
-        font-size: 1.2rem !important;
-        line-height: 1.8 !important;
-    }
-
-    /* Popülerlik etiketi */
-    .popularity-badge {
-        font-size: 1.1rem !important;
-        padding: 10px 20px !important;
-        top: 20px !important;
-        left: 20px !important;
-    }
-}
-
-/* =========================================
-   INFLUENCER KARTLARI (DEVASA)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .influencers-container {
-        gap: 4rem !important;
-    }
-
-    .influencer-card {
-        padding: 3.5rem !important;
-        min-height: 280px;
-        /* Kart yüksekliği */
-        border-radius: 30px !important;
-    }
-
-    .influencer-avatar {
-        width: 140px !important;
-        /* Avatar boyutu */
-        height: 140px !important;
-        margin-right: 1rem;
-    }
-
-    .influencer-name {
-        font-size: 2rem !important;
-        /* İsim boyutu */
-        margin-bottom: 1rem !important;
-    }
-
-    .influencer-recommendation {
-        font-size: 1.4rem !important;
-        line-height: 1.6;
-    }
-}
-
-/* =========================================
-   FİLTRE BUTONLARI (DAHA BÜYÜK)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .filter-buttons {
-        gap: 2rem !important;
-    }
-
-    .filter-btn {
-        padding: 1.5rem 3rem !important;
-        /* Buton içi boşluk */
-        font-size: 1.4rem !important;
-        /* Yazı boyutu */
-        border-radius: 70px !important;
-    }
-
-    .filter-icon {
-        font-size: 1.8rem !important;
-        margin-right: 10px !important;
-    }
-
-    .selected-filter {
-        font-size: 1.4rem !important;
-        padding: 1.5rem 3rem !important;
-        border-radius: 20px !important;
-    }
-}
-
-/* =========================================
-   İDEAL / DENGELİ BÜYÜK MOD (OPTIMIZED LARGE)
-========================================= */
-
-/* 1. Konteyner: Geniş ama kenarlara yapışık değil */
-.container {
-    max-width: 95% !important;
-    padding: 0 2rem;
-}
-
-/* Bölüm Başlıkları: Ne çok büyük ne çok küçük */
-@media screen and (min-width: 1200px) {
-    .section-title {
-        font-size: 2.5rem !important;
-        /* 3.5rem'den 2.5rem'e indirdik */
-        margin-bottom: 2.5rem !important;
-        margin-left: 0.5rem;
-    }
-}
-
-/* =========================================
-   POPÜLER MEKAN KARTLARI (DENGELİ)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .place-card {
-        /* Kart genişliği: 650px yerine 480px (İdeal Genişlik) */
-        flex: 0 0 480px !important;
-        border-radius: 24px !important;
-        box-shadow: 0 10px 30px rgba(107, 78, 61, 0.12) !important;
-    }
-
-    .card-image {
-        height: 320px !important;
-        /* Resim yüksekliği dengelendi */
-    }
-
-    .card-content {
-        padding: 1.8rem !important;
-    }
-
-    .card-title {
-        font-size: 1.6rem !important;
-        /* Başlıklar kibarlaştı */
-        margin-bottom: 0.5rem !important;
-    }
-
-    .rating-value {
-        font-size: 1.2rem !important;
-    }
-
-    .star {
-        font-size: 1.2rem !important;
-    }
-
-    .card-location {
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .card-description {
-        font-size: 1.05rem !important;
-        line-height: 1.6 !important;
-    }
-
-    .popularity-badge {
-        font-size: 0.95rem !important;
-        padding: 8px 16px !important;
-    }
-}
-
-/* =========================================
-   INFLUENCER KARTLARI (DENGELİ)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .influencers-container {
-        gap: 2.5rem !important;
-    }
-
-    .influencer-card {
-        padding: 2.5rem !important;
-        min-height: 220px;
-        border-radius: 24px !important;
-    }
-
-    .influencer-avatar {
-        width: 100px !important;
-        /* 140px'den 100px'e indi */
-        height: 100px !important;
-        margin-right: 1.5rem;
-    }
-
-    .influencer-name {
-        font-size: 1.4rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-
-    .influencer-recommendation {
-        font-size: 1.1rem !important;
-    }
-}
-
-/* =========================================
-   FİLTRE BUTONLARI (DENGELİ)
-========================================= */
-@media screen and (min-width: 1200px) {
-    .filter-buttons {
-        gap: 1.2rem !important;
-    }
-
-    .filter-btn {
-        padding: 1rem 2.2rem !important;
-        /* Butonlar toparlandı */
-        font-size: 1.1rem !important;
-        border-radius: 50px !important;
-    }
-
-    .filter-icon {
-        font-size: 1.4rem !important;
-        margin-right: 8px !important;
-    }
-
-    .selected-filter {
-        font-size: 1.1rem !important;
-        padding: 1rem 2rem !important;
-    }
-}
-
-/* =========================================
-   YAZI VE İÇERİK OKUNABİLİRLİK AYARI
-========================================= */
-
-@media screen and (min-width: 1200px) {
-
-    /* --- Mekan Kartı Yazıları --- */
-    .card-title {
-        font-size: 2rem !important;
-        /* Başlıklar çok daha büyük ve net */
-        font-weight: 800 !important;
-        /* Daha kalın */
-        line-height: 1.3 !important;
-    }
-
-    .card-description {
-        font-size: 1.5rem !important;
-        /* Açıklama yazısı büyüdü */
-        color: var(--dark-brown) !important;
-        /* Rengi biraz koyulaştırdık, daha net okunsun */
-        opacity: 0.9;
-        line-height: 1.6 !important;
-    }
-
-    .card-location {
-        font-size: 1.5rem !important;
-        /* Konum yazısı */
-        font-weight: 500 !important;
-    }
-
-    .rating-value {
-        font-size: 1.7rem !important;
-        /* Puan yazısı */
-        font-weight: 800 !important;
-    }
-
-    /* --- Influencer Kartı Yazıları --- */
-    .influencer-name {
-        font-size: 2rem !important;
-        /* Kullanıcı adı kocaman olsun */
-        font-weight: 700 !important;
-    }
-
-    .influencer-recommendation {
-        font-size: 1.50rem !important;
-        /* Öneri yazısı çok daha okunaklı */
-        line-height: 2 !important;
-    }
-
-    /* --- Kategori Buton Yazıları --- */
-    .filter-btn {
-        font-size: 1.3rem !important;
-        font-weight: 1000 !important;
-    }
-
-    /* Sayfa bittikten sonra altında boşluk kalsın */
-    body {
-        padding-bottom: 150px !important;
-        /* En altta 150px boşluk bırakır */
-    }
-}
-
-/* =========================================
-   KATEGORİ VE FİLTRE ALANI (BÜYÜTME)
-========================================= */
-
-@media screen and (min-width: 1200px) {
-
-    /* 1. Kategori Başlığı */
-    .category-filter .section-title {
-        font-size: 2.5rem !important;
-        margin-bottom: 2rem !important;
-    }
-
-    /* 2. Filtre Butonları (Kapsülleri Büyüt) */
-    .filter-btn {
-        padding: 1.2rem 2.5rem !important;
-        /* Butonları genişlet */
-        font-size: 1.3rem !important;
-        /* Yazıyı büyüt */
-        border-radius: 50px !important;
-        /* Yuvarlak hatlar */
-        margin-right: 1rem !important;
-        /* Aralarındaki boşluk */
-    }
-
-    /* Buton içindeki emojiler */
-    .filter-icon {
-        font-size: 1.6rem !important;
-        /* Emojileri büyüt */
-        margin-right: 10px !important;
-    }
-
-    /* 3. "Selected" (Seçili Olan) Çubuğu */
-    .selected-filter {
-        font-size: 1.4rem !important;
-        /* İçindeki yazıyı büyüt */
-        padding: 1.5rem 3rem !important;
-        /* Çubuğu kalınlaştır */
-        margin-top: 1.5rem !important;
-        /* Butonlarla arasını aç */
-        border-radius: 20px !important;
-        /* Köşeleri yumuşat */
-
-        /* Çubuğun içindeki "Selected:" yazısını ve kalın kısmı hedefle */
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Eğer Selected kısmında strong etiketi varsa */
-    .selected-filter strong {
-        font-size: 1.5rem !important;
-        margin-left: 8px !important;
-        color: var(--soft-orange) !important;
-    }
-}
-
-/* =========================================
-   KARTLARI SOLA YASLAMA VE GENİŞLETME
-========================================= */
-
-@media screen and (min-width: 1200px) {
-
-    /* Kaydırma alanını kapsayan kutuyu düzeltelim */
-    .places-scroll-container {
-        width: 100% !important;
-        overflow: visible !important;
-        /* Taşan kısımlar görünür olsun (isteğe bağlı) */
-    }
-
-    /* Kartların dizildiği şeridi sola çek */
-    .places-wrapper {
-        margin: 0 !important;
-        /* Ortalamayı (margin: 0 auto) iptal et */
-        margin-left: 0 !important;
-        /* Sola yapıştır */
-        justify-content: flex-start !important;
-        /* Esnek kutu başlangıcı sol olsun */
-        max-width: 100% !important;
-        /* Genişlik sınırını kaldır */
-        padding-left: 0 !important;
-        /* Sol iç boşluğu sıfırla */
-        padding-right: 2rem !important;
-        /* Sağ tarafta biraz boşluk kalsın */
-    }
-
-    /* Başlık ile kartların hizasını eşitlemek için ince ayar */
-    /* Eğer başlığın solunda boşluk varsa, kartların da o kadar boşluğu olsun */
-    /* .container'ın padding'i zaten bunu sağlıyor, o yüzden buraya ekstra gerek yok */
-}
-
-/* =========================================
-   PIXEL ART / RETRO TEMA DÖNÜŞÜMÜ
-========================================= */
-
-/* 1. TÜM BAŞLIKLARI PİKSEL FONT YAPALIM */
-.hero-title,
-.section-title,
-.card-title,
-.logo-text,
-.nav-links a,
-.filter-btn,
-.influencer-name,
-.copyright,
-.footer-logo {
-    font-family: 'VT323', monospace !important;
-    /* Piksel fontu */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    /* Başlıklar genelde büyük harf olur retroda */
-}
-
-/* 2. ANA YAZILARIN BOYUTUNU AYARLAYALIM (Piksel fontlar genelde küçük görünür, büyütmek gerekir) */
-.section-title {
-    font-size: 3.5rem !important;
-}
-
-.card-title {
-    font-size: 2.2rem !important;
-}
-
-.hero-title {
-    font-size: 6rem !important;
-}
-
-.filter-btn {
-    font-size: 1.5rem !important;
-}
-
-.nav-links a {
-    font-size: 1.5rem !important;
-}
-
-/* 3. KARTLARI KUTU GİBİ YAPALIM (Hard Border & Shadow) */
-.place-card,
-.influencer-card,
-.selected-filter {
-    border: 4px solid var(--dark-brown) !important;
-    /* Kalın kenarlık */
-    border-radius: 8px !important;
-    /* Çok hafif yumuşatma, tamamen yuvarlak değil */
-
-    /* Bulanık gölge yerine SERT gölge (Retro hissi verir) */
-    box-shadow: 6px 6px 0px rgba(107, 78, 61, 0.4) !important;
-
-    background-color: #FFF8F0 !important;
-    /* Hafif kırık beyaz kağıt rengi */
-}
-
-/* Kartların üzerine gelince gölge hareket etsin (Tıklama hissi) */
-.place-card:hover,
-.influencer-card:hover {
-    transform: translate(-2px, -2px) !important;
-    box-shadow: 8px 8px 0px rgba(107, 78, 61, 0.6) !important;
-}
-
-/* 4. FİLTRE BUTONLARINI PİKSELLEŞTİRME */
-.filter-btn {
-    border: 3px solid var(--dark-brown) !important;
-    border-radius: 8px !important;
-    /* Hap şeklinde değil, kutu gibi */
-    box-shadow: 3px 3px 0px rgba(107, 78, 61, 0.3) !important;
-    background: var(--white);
-    color: var(--dark-brown);
-}
-
-.filter-btn.active {
-    background: var(--soft-orange) !important;
-    color: var(--dark-brown) !important;
-    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.1) !important;
-    /* Basılmış hissi */
-}
-
-/* 5. GÖRSELLERİN KÖŞELERİ */
-.card-image,
-.influencer-avatar {
-    border-bottom: 4px solid var(--dark-brown) !important;
-    /* Resmin altına çizgi */
-    border-radius: 4px 4px 0 0 !important;
-    /* Üstler hafif oval, altlar düz */
-}
-
-.influencer-avatar {
-    border: 3px solid var(--dark-brown) !important;
-    border-radius: 50% !important;
-    /* Avatar yuvarlak kalabilir ama çerçeveli olsun */
-}
-
-/* 6. POPÜLERLİK ETİKETİ */
-.popularity-badge {
-    border: 2px solid var(--dark-brown) !important;
-    border-radius: 4px !important;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2) !important;
-    font-family: 'VT323', monospace !important;
-    font-size: 1.2rem !important;
-}
-
-/* 7. NAVBAR BUTONLARI */
-.navbar {
-    border-bottom: 4px solid var(--dark-brown);
-    /* Navbar altına çizgi */
-    background: rgba(0, 0, 0, 0.1) !important;
-    /* Biraz daha opak */
-}
-
-/* Filtre Butonlarını Home Sayfasıyla Eşitleme */
-.filter-btn {
-    background-color: #E8A87C !important;
-    /* Home'daki turuncu tonu */
-    color: #6B4E3D !important;
-    /* Koyu kahve yazı */
-    border: 3px solid #6B4E3D !important;
-    /* Kalın çerçeve */
-    box-shadow: 4px 4px 0px rgba(107, 78, 61, 0.4) !important;
-    /* Sert gölge */
-    border-radius: 4px !important;
-    /* Hafif köşeli */
-    text-transform: uppercase;
-    font-family: 'VT323', monospace !important;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    transform: translate(2px, 2px);
-    /* Tıklanma efekti */
-    box-shadow: 2px 2px 0px rgba(107, 78, 61, 0.6) !important;
-    background-color: #d6956b !important;
-    /* Hafif koyu turuncu */
-}
-
-/* =========================================
-   PIXEL ART NAVBAR (GÜNCEL TASARIM)
-========================================= */
-
-/* 1. Navbar Ana Yapısı (Buzlu Cam + Kahverengi) */
-.navbar {
-    position: fixed;
-    /* Sayfa kayarken sabit kalır */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    /* Arkadaşının kodu: Buzlu cam efekti */
-    background: rgba(230, 201, 168, 0.85);
-    /* Senin bej renginin şeffaf hali */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    /* Altına koyu kahve çizgi */
-    border-bottom: 3px solid rgb(54, 27, 8);
-
-    padding: 15px 0;
-    font-family: 'Pixelify Sans', sans-serif;
-    /* Pixel Fontu */
-}
-
-/* 2. İçerik Düzeni */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1800px;
-    margin: 0 auto;
-    width: 95%;
-}
-
-/* 3. Logo Tasarımı */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: rgb(54, 27, 8);
-    /* Koyu kahve */
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.logo-icon {
-    font-size: 2rem;
-}
-
-/* 4. Linkler (Explore, Home vb.) */
-.nav-links {
-    display: flex;
-    gap: 3rem;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-links a {
-    color: rgb(54, 27, 8);
-    /* Koyu kahve */
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #d65a31;
-    /* Hover olunca turuncu olsun */
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-}
-
-/* 5. Profil Avatarı ve Sağ Kısım */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.avatar-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid rgb(54, 27, 8);
-    /* Avatara da çerçeve */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.avatar-circle:hover {
-    transform: scale(1.1);
-}
-
-/* 6. Hamburger Menü (Mobilde Görünür) */
-.hamburger {
-    display: none;
-    /* Masaüstünde gizli */
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 30px;
-    height: 4px;
-    /* Çizgileri kalınlaştırdık pixel havası için */
-    background-color: rgb(54, 27, 8);
-    border-radius: 2px;
-}
-
-/* RESPONSIVE AYARI */
-@media screen and (max-width: 1024px) {
-    .nav-links {
-        display: none;
-        /* Tablet ve mobilde linkleri gizle */
-    }
-
-    .hamburger {
-        display: flex;
-        /* Hamburgeri göster */
-    }
-}
-
-/* =========================================
-   NAVBAR BOYUT VE YAZI AYARLARI (GÜNCEL)
-========================================= */
-
-/* 1. Navbar'ın Yüksekliğini Artırma (Daha Kalın Olsun) */
-.navbar {
-    padding: 1.8rem 0 !important;
-    /* 1rem'den 1.8rem'e çıkardık (Daha geniş) */
-}
-
-/* 2. Logo Yazısını Büyütme */
-.logo-text {
-    font-size: 3rem !important;
-    /* Logoyu belirginleştirdik */
-    letter-spacing: 1px;
-}
-
-.logo-icon {
-    font-size: 3rem !important;
-    /* Pusula ikonunu da büyüttük */
-}
-
-/* 3. Menü Linklerini (Explore, Profile vb.) Büyütme */
-.nav-links a {
-    font-size: 3rem !important;
-    /* Yazılar artık daha büyük */
-    font-weight: 700 !important;
-    /* Biraz daha kalın (Bold) */
-    letter-spacing: 2px !important;
-    /* Harfleri biraz açalım, daha rahat okunsun */
-}
-
-/* 4. Sağdaki Buton veya İkonlar */
-.login-btn {
-    font-size: 1.6rem !important;
-    padding: 10px 24px !important;
-    /* Butonu da büyüttük */
-}
-
-/* Avatar Çerçevesi */
-.avatar-circle {
-    width: 50px !important;
-    /* 40px'den 50px'e */
-    height: 50px !important;
-}
-
-/* =========================================
-   GÖRSEL YERLEŞİMİ (RESİM + ROZET)
-========================================= */
-
-/* 1. Kapsayıcı Kutu */
-.card-image {
-    width: 100%;
-    height: 220px !important;
-    /* Kartın resim yüksekliği sabit olsun */
-    position: relative;
-    /* İçindeki rozeti (badge) konumlandırmak için gerekli */
-    overflow: hidden;
-    /* Taşan kısımları gizle */
-    border-radius: 8px 8px 0 0;
-    /* Üst köşeleri yumuşat */
-    background: #000;
-    /* Resim yüklenmezse arka plan siyah olsun */
-    padding: 0 !important;
-    /* İç boşluk olmasın */
-}
-
-/* 2. Resmin Kendisi */
-.place-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* SİHİRLİ KOD: Resmi kutuya doldurur, asla yamultmaz */
-    display: block;
-    transition: transform 0.5s ease;
-    /* Hover efekti için hazırlık */
-}
-
-/* Kartın üzerine gelince resim hafifçe büyüsün (Zoom Efekti) */
-.place-card:hover .place-img {
-    transform: scale(1.1);
-}
-
-/* 3. Popülerlik Rozetini Resmin Üzerine Çıkar */
-.popularity-badge {
-    position: absolute;
-    /* Resmi umursamadan üzerine çıkar */
-    top: 15px;
-    /* Üstten boşluk */
-    left: 15px;
-    /* Soldan boşluk */
-    z-index: 10;
-    /* Resmin önünde dursun */
-    background: #fff;
-    /* Arka planı beyaz olsun */
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-    /* Retro gölge */
-}
-
-/* =========================================
-   PİKSEL ART AVATAR STİLİ
-========================================= */
-
-.influencer-avatar-img {
-    width: 90px;
-    /* Avatar boyutu */
-    height: 90px;
-    /* Yükseklik ve genişlik eşit olmalı */
-
-    border-radius: 50%;
-    /* Tam yuvarlak yap */
-
-    /* RETRO ÇERÇEVE */
-    border: 4px solid #361B08;
-    /* Kalın, koyu kahve çerçeve */
-
-    /* PİKSEL GÖRÜNTÜ KALİTESİ (Çok Önemli!) */
-    image-rendering: pixelated;
-    /* Pikselleri bulanıklaştırma, net göster */
-
-    object-fit: cover;
-    /* Resmi yuvarlağın içine sığdır */
-
-    /* Hafif bir gölge ile derinlik kat */
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
-
-    /* Avatar ile isim arasına biraz boşluk */
-    margin-right: 1.5rem;
-}
-
-/* Mobilde biraz küçültelim */
-@media screen and (max-width: 768px) {
-    .influencer-avatar-img {
-        width: 70px;
-        height: 70px;
-        border-width: 3px;
-    }
-}
-
-/* ============================================================
-   🎨 FINAL AYDINLIK TEMA (LIGHT MAP THEME) 🎨
-   Daha ferah, kareli harita zemini ve sıcak renkler.
-============================================================ */
-
-/* 1. ARKA PLAN: Aydınlık "Kareli Harita" Zemini */
-body {
-    /* Çok açık krem rengi zemin */
-    background-color: #d6ccb2 !important;
-
-    /* İnce silik kareler (Origin Story görselindeki gibi) */
-    background-image:
-        linear-gradient(#E6D5B8 1px, transparent 1px),
-        linear-gradient(90deg, #E6D5B8 1px, transparent 1px) !important;
-    background-size: 40px 40px !important;
-    /* Karelerin boyutu */
-
-    color: #392822 !important;
-    /* Yazılar koyu kahve */
-}
-
-
-
-/* Linklerin Rengi */
-.nav-links a,
-.logo-text,
-.logo-icon {
-    color: #FFF !important;
-    /* Yazılar beyaz olsun ki okunsun */
-    text-shadow: 1px 1px 0 #5D4037 !important;
-    /* Hafif gölge */
-}
-
-.nav-links a:hover {
-    color: #FFE0B2 !important;
-    /* Hover olunca açık sarı */
-}
-
-
-/* 3. İÇERİK KUTULARI (Daha Temiz Görünüm) */
-.popular-places .container,
-.influencer-picks .container,
-.category-filter .container,
-.selected-filter {
-    /* Kutunun içi bembeyaz ve temiz olsun */
-    background-color: #edebe4 !important;
-    background-image: none !important;
-    /* Eski dokuyu kaldırdık */
-
-    /* Çerçeve ve Gölge */
-    border: 8px solid #8D6E63 !important;
-    /* Orta ton kahve çerçeve */
-    border-radius: 30px !important;
-
-    /* Gölgeyi daha yumuşak ve renkli yapalım */
-    box-shadow: 12px 12px 0px rgba(141, 110, 99, 0.4) !important;
-
-    margin-top: 2rem !important;
-    padding: 3rem !important;
-}
-
-/* 4. MEKAN KARTLARI (Place Cards) */
-.place-card {
-    background-color: #e7debf !important;
-    /* Çok hafif sarımtırak */
-    border: 2px solid #a58b81 !important;
-    box-shadow: 5px 5px 0px rgba(156, 123, 110, 0.4) !important;
-}
-
-.place-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 8px 8px 0px rgba(161, 136, 127, 0.6) !important;
-    border-color: #8D6E63 !important;
-}
-
-
-/* Kartın içindeki yazılar */
-.card-content {
-    border-top: 2px solid #A1887F !important;
-}
-
-.card-title {
-    color: #3E2723 !important;
-}
-
-/* 5. FİLTRE BUTONLARI */
 .filter-btn {
     background-color: #FFFFFF !important;
-    border: 5px solid #A1887F !important;
+    border: 3px solid #A1887F !important;
     color: #5D4037 !important;
-    box-shadow: 10px 10px 0px rgba(161, 136, 127, 0.3) !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    box-shadow: 4px 4px 0px rgba(161, 136, 127, 0.3) !important;
+    cursor: pointer;
 }
 
 .filter-btn.active {
     background-color: #e77e5e !important;
-    /* Canlı Turuncu */
-    color: #bba3a3 !important;
-
-}
-
-body {
-    background-color: #eadfc0 !important;
-    /* Zemin rengi */
-    /* İşte o kareli defter çizgileri: */
-    background-image:
-        linear-gradient(#D7CCC8 2px, transparent 2px),
-        linear-gradient(90deg, #D7CCC8 2px, transparent 2px) !important;
-    background-size: 140px 140px !important;
-    /* Karelerin boyutu */
-    background-position: center top !important;
+    color: #ffffff !important;
+    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* ============================================================
-   🟤 NAVBAR & GİRİŞ BUTONU DÜZENLEMESİ (RETRO BROWN) 🟤
+   8. RESPONSIVE DESIGN
 ============================================================ */
-
-/* 1. Navbar Genel Yapısı (Senin Kodun + Retro Ayarlar) */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    /* Senin verdiğin renk ve blur ayarı */
-    background: rgba(80, 50, 40, 0.85) !important;
-    /* Biraz daha opak yaptım arkası net görünsün */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    border-bottom: 4px solid #5D4037 !important;
-    /* Kalın retro çizgi */
-    padding: 15px 0;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1800px;
-    margin: auto;
-    width: 95%;
-}
-
-/* 2. Logo ve Linkler (Fontu VT323 yaptık ki tema bozulmasın) */
-.logo,
-.nav-links a {
-    font-family: 'VT323', monospace !important;
-    /* Retro Font */
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #F4E4C1 !important;
-    /* Krem rengi */
-    text-shadow: 2px 2px 0px #000;
-    /* Okunabilirlik için gölge */
-}
-
-.logo {
-    font-size: 2.2rem !important;
-    gap: 10px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    gap: 3rem;
-    /* Mobilde sıkışmaması için 9rem'den 3rem'e çektim */
-    list-style: none;
-}
-
-.nav-links a {
-    font-size: 1.8rem !important;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #FFA726 !important;
-    /* Hover olunca turuncu */
-}
-
-/* 3. "LOG IN / SIGN" BUTONU TASARIMI */
-.auth-buttons {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.login-btn {
-    font-family: 'VT323', monospace !important;
-    font-size: 1.5rem !important;
-    color: #F4E4C1 !important;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    /* ÇERÇEVELİ KUTU GÖRÜNÜMÜ */
-    border: 3px solid #F4E4C1 !important;
-    padding: 0.5rem 1.5rem !important;
-    transition: all 0.3s ease;
-
-    /* Arka plan şeffaf */
-    background: transparent;
-}
-
-/* Üzerine gelince renkler tersine dönsün */
-.login-btn:hover {
-    background-color: #F4E4C1 !important;
-    color: #5D4037 !important;
-    /* Koyu kahve yazı */
-    box-shadow: 0 0 10px rgba(244, 228, 193, 0.4);
-}
-
-/* 4. MOBİL UYUMLULUK */
 @media screen and (max-width: 1024px) {
     .nav-links {
-        display: none;
-        /* Mobilde menüyü gizle */
+        display: none !important;
     }
 
-    /* Mobilde Login yazısı çok büyük gelirse */
-    .login-btn {
-        font-size: 1.2rem !important;
-        padding: 0.3rem 1rem !important;
+    .hero-title {
+        font-size: 3.5rem;
     }
+
+    .place-card {
+        flex: 0 0 280px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 400px;
+    }
+
+    .container {
+        width: 95% !important;
+    }
+}
+
+/* ============================================================
+   🔥 POPULARITY KUTUCUK (BADGE) TASARIMI 🔥
+============================================================ */
+
+.popularity-badge {
+
+    position: absolute !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 10 !important;
+
+    /* 2. Kutucuk Görünümü */
+    background-color: #FFF8F0 !important;
+    border: 3px solid #361B08 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+
+
+
+    font-family: 'Pixelify Sans', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    color: #361B08 !important;
+    text-transform: uppercase !important;
+
+
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2) !important;
+
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+
+.fire-icon {
+    font-size: 14px !important;
 }

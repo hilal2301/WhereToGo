@@ -34,42 +34,34 @@ body {
 
 /* ================= NAV ================= */
 nav {
-    /* 1. POSITIONING: Sits on top of the Hero Image */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensures it stays above the image slider */
-
-    /* 2. TRANSPARENCY: Brown tint with 30% opacity */
-    background: rgba(80, 50, 40, 0.3); 
-    
-    /* 3. BLUR EFFECT: Makes it look like "Frosted Glass" */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari support */
-
-    /* 4. BORDER: A subtle bottom line for style */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    
-    padding: 20px 0; /* Spacing */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(80, 50, 40, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 0;
 }
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
   align-items:center;
-  max-width: 2000px;
-  margin: auto;
-  width: 90%;
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 0 40px;
+  width: 100%;
 }
 
 .logo {
-  display: flex;
+  display:flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
   color: #f4e4c1;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -81,14 +73,16 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 9rem;
+  gap: 2rem;
   list-style: none;
+  justify-content: center; /* Linkleri kendi içinde ortalar */
+    flex-grow: 1; /* Linklerin orta alanı kaplamasını sağlar */
 }
 
 .nav-links a {
   color: #f4e4c1;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -121,6 +115,8 @@ nav {
 }
 
 /* ================= CONTACT ================= */
+
+
 .contact-container {
     border-radius: 15px;
   position: absolute;
@@ -172,6 +168,27 @@ nav {
         );
     pointer-events: none;
     border-radius: 15px;}
+    .info-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px double #8b5a2b; /* Çift çizgili antik çerçeve */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05); /* Hafif şeffaf arka plan */
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.info-box h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #d4af37; /* Altın rengi başlık */
+    border-bottom: 1px solid #8b5a2b;
+    padding-bottom: 5px;
+}
+
+.info-box p {
+    margin: 8px 0;
+    color: #f0e68c; /* Yazı rengi */}
 
 /* ================= FORM ================= */
 input,
@@ -266,23 +283,18 @@ iframe {
   font-size: 1rem;
 }
 
-  .auth-buttons {
-    display: none;
-  }
-
   .contact-container {
-    width: 90%;
-    margin: 10px auto 150px;
+gap: 30px;
   }
 
   .map-container {
+    display: block;
     width: 90%;
-    height: 150px;
+    height: 200px;
     bottom: 10px;
     left: 50%;
     top: auto;
     transform: translateX(-50%);
+    z-index: 11000;
     }
 }
-
-

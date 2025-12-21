@@ -15,39 +15,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-     <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <nav class="navbar" id="navbar">
+    <nav>
         <div class="nav-container">
-
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🧭</span>
-                <span class="logo-text">Where To Go</span>
+            <a href="index.html" class="home-button">
+                <img src="assets/fonts/img/homefoto.png" alt="HomePage" class="home-img">
+                <span>Where To Go</span>
             </a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="explore.html" class="active">EXPLORE</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">HELP</a></li>
+            <ul class="nav-links">
+                <li><a href="explore.html" class="active">Explore</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
 
-            <div class="nav-right">
-                <div class="auth-buttons">
-                    <a href="login.html" class="login-btn">LOG IN / SIGN</a>
-                </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Log In / Sign</a>
 
-                <button class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </button>
+                <a href="https://www.instagram.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://twitter.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
             </div>
 
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" style="display:none;">
                 <span></span><span></span><span></span>
             </button>
-        </div>
         </div>
     </nav>
 
@@ -56,7 +57,7 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="explore.html" class="active">EXPLORE</a></li>
-            <li><a href="contact.html">HELP</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </div>
 
@@ -253,7 +254,7 @@
 
 
 
-    
+
     <script src="explore.js"></script>
 
 

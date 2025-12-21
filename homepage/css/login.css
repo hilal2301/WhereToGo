@@ -14,7 +14,7 @@
 
 
 body {
-  background-image: url('/homepage/assets/fonts/img/loginFoto.jpg');
+  background-image: url('../assets/fonts/img/loginFoto.jpg');
     min-height: 100vh;
     background-repeat: no-repeat;
       background-size: cover;
@@ -24,37 +24,38 @@ body {
     padding: 20px;
 
 }
-nav {
+
+/*nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(80, 50, 40, 0.3);
+  background: rgba(80, 50, 40, 0.3) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 15px 0;
+  padding: 20px 0 !important;
 }
 
 
 .nav-container {
   display: flex;
-  justify-content: center;
   justify-content: space-between;
   align-items:center;
-  max-width: 2000px;
-  margin: auto;
-  width: 95%;
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 0 40px;
+  width: 100%;
 }
 
 .logo {
   display:flex;
   align-items: center;
-  gap: 5px;
+  gap: 12px;
   text-decoration: none;
   color: #f4e4c1;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
 
@@ -66,16 +67,16 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 9rem;
+  gap: 2rem;
   list-style: none;
   justify-content: center; /* Linkleri kendi içinde ortalar */
-    flex-grow: 1; /* Linklerin orta alanı kaplamasını sağlar */
-}
+/*    flex-grow: 1; /* Linklerin orta alanı kaplamasını sağlar */
+/*}
 
 .nav-links a {
   color: #f4e4c1;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -83,6 +84,29 @@ nav {
 .nav-links a:hover {
   color: #d4a373;
 }
+
+/*.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px !important;
+}
+
+.auth-buttons {
+  left: 100%;
+    padding: 0.5rem 1.5rem !important;
+    border: 1px solid #ffffff !important;
+    background: transparent;
+    color: #fafafa !important;
+    text-decoration: none;
+    font-size: 1rem !important;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.auth-buttons:hover {
+    background: #D0B170 !important;
+    color: #2c2416 !important;
+}/*
 .auth-buttons {
   padding: 0.5rem 1.5rem;
   border: 2px solid #e2cea1;
@@ -93,11 +117,102 @@ nav {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+
 }
 
 .auth-btn:hover {
   background: #D0B170;
   color: #2c2416;
+}*/
+
+/* ============================================================
+   3. NAVIGATION BAR (FROSTED GLASS)
+============================================================ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(80, 50, 40, 0.3) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 0 !important;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #f8f8f8 !important;
+    font-size: 1.7rem !important;
+    font-weight: bold;
+}
+
+.logo-img {
+    height: 45px !important;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem !important;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #f4e4c1 !important;
+    text-decoration: none;
+    font-size: 1rem !important;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4a373 !important;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px !important;
+}
+
+.btn1 {
+    padding: 0.5rem 1.5rem !important;
+    border: 1px solid #ffffff !important;
+    background: transparent;
+    color: #fafafa !important;
+    text-decoration: none;
+    font-size: 1rem !important;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-family: 'Pixelify Sans';
+      text-transform: uppercase;
+}
+
+.btn1:hover {
+    background: #D0B170 !important;
+    color: #2c2416 !important;
+}
+
+.social-btn {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .main-container {
@@ -246,14 +361,20 @@ h2,.link,.btn,input,.nav-links,.logo,.subtitle,.form-group{
 
 @media (max-width: 768px)
     {
+      body {
+    flex-direction: column;
+    padding-top: 100px;
+    background-attachment: scroll;
+  }
       nav {
     padding: 8px 0;
+   
 
 
   }
   .nav-container {
-    flex-direction: column;
-    gap: 5px;      
+flex-direction: column; /* Alt alta dizilmek yerine yan yana kalmaya zorladık */
+      gap: 5px;/* Kenarlara daha çok yanaşması için */
 
   }
 
@@ -261,11 +382,12 @@ h2,.link,.btn,input,.nav-links,.logo,.subtitle,.form-group{
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    z-index: 1000;
+
+
   }
 
   .nav-links a {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
     
     .main-container {
