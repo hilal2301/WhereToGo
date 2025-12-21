@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="css/contact.css"> 
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+            <img src="assets/fonts/img/homefoto.png" alt="Logosu" class="logo-img">
+            <span class="logo-text">Where to go</span>
+            </a> <ul class="nav-links">
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Log In / Sign</a>
+                <a href="https://www.instagram.com/WhereToGo" target="_blank" class="social-btn">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://twitter.com/WhereToGo" target="_blank" class="social-btn">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.610816938925!2d28.9772322!3d41.0369875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2sTaksim%20Meydan%C4%B1%2C%20G%C3%BCm%C3%BC%C5%9Fsuyu%2C%2034437%20Beyo%C4%9Flu%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1684323232323!5m2!1str!2str" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+        
+    </iframe>
+
+    </div>
+    <div class="contact-container">
+        <h1>CONTACT FORM</h1> <div class="form-section">
+            <div class="section-title" style="margin-bottom:10px;">Send a scroll via pigeon:</div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="surname" placeholder="Surname" required> 
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email " required> 
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" placeholder="Your quest details..." rows="4" required></textarea>
+                </div>
+            </form>
+        </div>
+
+        <button class="transmit-btn" onclick="handleTransmit()">SEND </button>
+<div class="info-box">
+    <h3>Info:</h3>
+    <p><strong>Telephone:</strong> +90 555 000 00 00</p>
+    <p><strong>Mail:</strong> support@wheretogo</p>
+</div>
+
+    </div>
+
+
+
+    <script src="js/contact.js"></script>
+</body>
+</html>

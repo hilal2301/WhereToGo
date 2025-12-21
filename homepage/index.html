@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Where To Go</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="home-button">
+                <img src="assets/fonts/img/homefoto.png" alt="HomePage" class="home-img">
+                <span>Where To Go</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Log In / Sign</a>
+
+                <a href="https://www.instagram.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://twitter.com/WhereToGo" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="nav-links">
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+        <a href="login.html" class="btn">Log In / Sign</a>
+    </div>
+    </div>
+    </nav>
+
+    <!-- Hero Section with Search -->
+    <section id="home" class="hero">
+
+        <div class="hero-slider">
+            <div class="hero-slide"
+                style="background-image: url('assets/fonts/img/hero1.jpg'); background-size: cover; background-position: center;">
+            </div>
+
+            <div class="hero-slide"
+                style="background-image: url('assets/fonts/img/hero2.jpg'); background-size: cover; background-position: center;">
+            </div>
+
+            <div class="hero-slide"
+                style="background-image: url('assets/fonts/img/hero3.jpg'); background-size: cover; background-position: center;">
+            </div>
+        </div>
+
+        <div class="hero-overlay-content">
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="search your journey..." id="searchInput">
+                    <button class="search-btn">🔍 Search</button>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Main Content with Sidebar -->
+    <div class="main-content">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <h3>Filters</h3>
+
+            <div class="filter-icons">
+                <div class="filter-icon active" data-target="all" title="Show All">
+                    <h3 style="margin:0; color:#fff; font-size:16px;">ALL</h3>
+                </div>
+                <div class="filter-icon active" data-target="restoran" title="Restaurants">
+                    <img src="assets/fonts/img/restoran.jpg" alt="Restaurant">
+                </div>
+
+                <div class="filter-icon" data-target="etkinlik" title="Live Events">
+                    <img src="assets/fonts/img/live_event.jpg" alt="Live Events">
+                </div>
+
+                <div class="filter-icon" data-target="kafe" title="Cafés">
+                    <img src="assets/fonts/img/cafeshop.jpg" alt="cafe">
+                </div>
+
+                <div class="filter-icon" data-target="cami" title="Mosques">
+                    <img src="assets/fonts/img/cami.jpg" alt="Mosque">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-option">
+                    <span>Vegetarian & Vegan</span>
+                    <div class="toggle-switch" data-filter="veg"></div>
+                </div>
+                <div class="filter-option">
+                    <span>Pet-Friendly</span>
+                    <div class="toggle-switch" data-filter="pet"></div>
+                </div>
+                <div class="filter-option">
+                    <span>Open Now</span>
+                    <div class="toggle-switch active" data-filter="open"></div>
+                </div>
+                <div class="filter-option">
+                    <span>Delivery Available</span>
+                    <div class="toggle-switch" data-filter="delivery"></div>
+                </div>
+                <div class="filter-option">
+                    <span>Outdoor Seating</span>
+                    <div class="toggle-switch" data-filter="outdoor"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area" id="explore">
+            <!-- Featured Categories -->
+            <div class="section-title">
+                <h2>Featured Categories</h2>
+                <div class="view-header">
+
+                </div>
+
+                <div id="content-area" class="grid-view">
+
+
+                </div>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="assets/fonts/img/food plate.jpg" alt="Restaurant Icon" class="cat-img">
+                    <h3>Restaurants</h3>
+                    <p>Fine dining experiences</p>
+                </div>
+                <div class="category-card">
+                    <img src="assets/fonts/img/cafe.jpg" alt="Cafe Icon" class="cat-img">
+                    <h3>Cafés</h3>
+                    <p>Coffee & pastries</p>
+                </div>
+                <div class="category-card">
+                    <img src="assets/fonts/img/live music.jpg" alt="Music Icon" class="cat-img">
+                    <h3>Live Events</h3>
+                    <p>Entertainment & dining</p>
+                </div>
+            </div>
+
+            <!-- Restaurant Menu Section -->
+            <div class="restaurants-grid">
+
+                <article class="restaurant-card" data-category="restoran" data-features="veg outdoor open">
+                    <div class="restaurant-info">
+                        <h2>Sarayburnu, Eminönü</h2>
+                        <div class="restaurant-meta">Cafe Aurora • Open • $$</div>
+                        <p class="restaurant-description">A unique escape where history meets the endless blue. <br>
+                            Sarayburnu offers one of the most iconic and <br> uninterrupted views of the Istanbul
+                            skyline.</p>
+                        <div class="action-buttons">
+                        </div>
+                    </div>
+                    <div class="restaurant-preview">
+                        <img src="assets/fonts/img/eminönü.jpeg" alt="Eminönü"
+                            style="width:100%; height:200px; object-fit:cover;">
+                    </div>
+                </article>
+
+                <article class="restaurant-card" data-category="etkinlik" data-features="pet outdoor">
+                    <div class="restaurant-info">
+                        <h2>Neon Jazz Hall</h2>
+                        <div class="restaurant-meta">Live Music • 21:00 • $$$</div>
+                        <p class="restaurant-description">Live jazz performances and signature cocktails.</p>
+                        <div class="action-buttons">
+                        </div>
+                    </div>
+                    <div class="restaurant-preview">
+                        <img src="assets/fonts/img/konser.jpeg" alt="Neon Jazz"
+                            style="width:100%; height:200px; object-fit:cover;">
+                    </div>
+                </article>
+
+                <article class="restaurant-card" data-category="Cafe" data-features="veg delivery open">
+                    <div class="restaurant-info">
+                        <h2>Espresso Lab</h2>
+                        <div class="restaurant-meta">Coffee • 07:00-23:00 • $</div>
+                        <p class="restaurant-description">Quality coffee and freshly baked delights.</p>
+                        <div class="action-buttons">
+                        </div>
+                    </div>
+                    <div class="restaurant-preview">
+                        <img src="assets/fonts/img/espresso.jpeg" alt="Espresso Lab"
+                            style="width:100%; height:200px; object-fit:cover;">
+                    </div>
+                </article>
+
+                <article class="restaurant-card" data-category="Mosque" data-features="open">
+                    <div class="restaurant-info">
+                        <h2>Sultanahmet Mosque</h2>
+                        <div class="restaurant-meta">Historical • Open for visit • Free</div>
+                        <p class="restaurant-description">Unparalelled architecture combined with the grand history of
+                            islam</p>
+                        <div class="action-buttons">
+                        </div>
+                    </div>
+                    <div class="restaurant-preview">
+                        <img src="assets/fonts/img/sultanahmet.jpeg" alt="Sultanahmet"
+                            style="width:100%; height:200px; object-fit:cover;">
+                    </div>
+                </article>
+
+            </div>
+
+
+            </article>
+
+            <!-- Reviews Section -->
+            <section class="reviews-section">
+                <div class="reviews-header">
+                    <h3>General Reviews</h3>
+                    <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5.0</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-author">Sarah M. - Verified Visitor</div>
+                    <p class="review-text">"Absolutely loved the atmosphere and the food was exceptional! The outdoor
+                        seating area is gorgeous, especially during sunset. Highly recommend the seasonal salad and
+                        their signature lemonade."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-author">James K. - Regular Customer</div>
+                    <p class="review-text">"My go-to spot for weekend brunch. The staff is always friendly and the
+                        service is quick."</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-author">Adam I. - Verified Visitor</div>
+                    <p class="review-text">"A site where you can find a place to visit, whenever you are where ever you
+                        are. "</p>
+                </div>
+            </section>
+    </div>
+    </main>
+    </div>
+
+    <!-- Footer -->
+    <footer id="help">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Resources</h3>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WhereToGo. All rights reserved.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; All images were made with Gemini AI.</p>
+            </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
