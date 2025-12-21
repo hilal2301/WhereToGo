@@ -1,34 +1,45 @@
 img {
-    max-width: 100%;  /* Kendi kutusundan asla daha geniş olma */
-    height: auto;     /* En-boy oranını bozma */
+    max-width: 100%;
+    /* Kendi kutusundan asla daha geniş olma */
+    height: auto;
+    /* En-boy oranını bozma */
 }
 
 @font-face {
-  font-family: 'Pixelify Sans';
-  src: url('../assets/fonts/PixelifySans-Bold.ttf')format('woff2'),
-       url('../assets/fonts/PixelifySans-Regular.woff') format('woff'),'
-       url('../assets/fonts/PixelifySans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Pixelify Sans';
+    src: url('../assets/fonts/PixelifySans-Bold.ttf')format('woff2'),
+        url('../assets/fonts/PixelifySans-Regular.woff') format('woff'), '
+ url('../assets/fonts/PixelifySans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 :root {
     /* 1. Main Backgrounds */
-    --bg-creamy: #f0e6d2;      /* The light beige background of the main page */
-    --bg-card: #e6d0b3;        /* The slightly darker beige for category cards */
-    
+    --bg-creamy: #f0e6d2;
+    /* The light beige background of the main page */
+    --bg-card: #e6d0b3;
+    /* The slightly darker beige for category cards */
+
     /* 2. Sidebar & Dark Elements */
-    --wood-dark: #8b5a2b;      /* The dark wood color for the Sidebar */
-    --wood-light: #a06e3b;     /* Lighter wood for borders or highlights */
-    
+    --wood-dark: #8b5a2b;
+    /* The dark wood color for the Sidebar */
+    --wood-light: #a06e3b;
+    /* Lighter wood for borders or highlights */
+
     /* 3. Accents & Buttons */
-    --btn-yellow: #f4c542;     /* The "Book a Table" yellow button */
-    --btn-hover: #ffda6e;      /* A slightly lighter yellow for hover effects */
-    --accent-orange: #c46d42;  /* The reddish-brown color for the "Green Oasis" card */
-    
+    --btn-yellow: #f4c542;
+    /* The "Book a Table" yellow button */
+    --btn-hover: #ffda6e;
+    /* A slightly lighter yellow for hover effects */
+    --accent-orange: #c46d42;
+    /* The reddish-brown color for the "Green Oasis" card */
+
     /* 4. Text Colors */
-    --text-dark: #4a3b32;      /* Dark coffee brown (use this instead of black) */
-    --text-light: #fefefe;     /* Off-white text for dark backgrounds */
+    --text-dark: #4a3b32;
+    /* Dark coffee brown (use this instead of black) */
+    --text-light: #fefefe;
+    /* Off-white text for dark backgrounds */
 }
 
 * {
@@ -46,10 +57,24 @@ body {
         linear-gradient(#D7CCC8 2px, transparent 2px),
         linear-gradient(90deg, #D7CCC8 2px, transparent 2px) !important;
     background-size: 100px 100px !important;
-   background-position: center top !important;
+    background-position: center top !important;
 }
 
-nav,.review-author,.rating,.filter-group,.search-btn,.section-title,.footer-bottom,h3,.restaurant-description,.restaurant-info,.restaurant-card,.action-btn,p{font-family: 'Pixelify Sans';}
+nav,
+.review-author,
+.rating,
+.filter-group,
+.search-btn,
+.section-title,
+.footer-bottom,
+h3,
+.restaurant-description,
+.restaurant-info,
+.restaurant-card,
+.action-btn,
+p {
+    font-family: 'Pixelify Sans';
+}
 
 /* Navigation */
 nav {
@@ -58,19 +83,22 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensures it stays above the image slider */
+    z-index: 1000;
+    /* Ensures it stays above the image slider */
 
     /* 2. TRANSPARENCY: Brown tint with 30% opacity */
-    background: rgba(80, 50, 40, 0.3); 
-    
+    background: rgba(80, 50, 40, 0.3);
+
     /* 3. BLUR EFFECT: Makes it look like "Frosted Glass" */
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    -webkit-backdrop-filter: blur(8px);
+    /* Safari support */
 
     /* 4. BORDER: A subtle bottom line for style */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    
-    padding: 20px 0; /* Spacing */
+
+    padding: 20px 0;
+    /* Spacing */
 }
 
 .nav-container {
@@ -139,10 +167,12 @@ nav {
 
 .hero {
     position: relative;
-    height: 800px; /* Yükseklik */
+    height: 800px;
+    /* Yükseklik */
     width: 100%;
     overflow: hidden;
-    background: #000; /* Resim yüklenmezse siyah fon */
+    background: #000;
+    /* Resim yüklenmezse siyah fon */
 }
 
 /* 1. Slider: Arka planda tam ekran ve en altta */
@@ -152,11 +182,13 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* En alt katman */
+    z-index: 1;
+    /* En alt katman */
 }
 
 .hero-slide {
-    position: absolute; /* Yan yana değil üst üste binsinler diye */
+    position: absolute;
+    /* Yan yana değil üst üste binsinler diye */
     top: 0;
     left: 0;
     width: 100%;
@@ -174,15 +206,17 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10; /* Slider'ın üstünde (TIKLANABİLİR ALAN) */
-    
+    z-index: 10;
+    /* Slider'ın üstünde (TIKLANABİLİR ALAN) */
+
     /* İçeriği tam ortalamak için */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    background: rgba(0, 0, 0, 0.2); /* Yazıların okunması için hafif karartma */
+
+    background: rgba(0, 0, 0, 0.2);
+    /* Yazıların okunması için hafif karartma */
 }
 
 /* Hero Text */
@@ -192,7 +226,8 @@ nav {
     padding: 2rem;
     border: 3px solid #d4a373;
     text-align: center;
-    margin-bottom: 30px; /* Search bar ile mesafe */
+    margin-bottom: 30px;
+    /* Search bar ile mesafe */
     max-width: 800px;
 }
 
@@ -208,8 +243,10 @@ nav {
     display: flex;
     justify-content: center;
     position: relative;
-    z-index: 20; /* En üstte olsun ki yazı yazılabilsin */
-    margin-top: 480px;  /*search barı hizalamak için*/
+    z-index: 20;
+    /* En üstte olsun ki yazı yazılabilsin */
+    margin-top: 480px;
+    /*search barı hizalamak için*/
 }
 
 .search-box {
@@ -217,8 +254,9 @@ nav {
     gap: 0.5rem;
     background: #fff;
     padding: 10px;
-    border-radius: 8px; /* Hafif yuvarlak köşe */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    /* Hafif yuvarlak köşe */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 600px;
 }
@@ -257,9 +295,11 @@ nav {
     transform: translateX(-50%);
     display: flex;
     gap: 1rem;
-    z-index: 30; /* Her şeyin en üstünde */
+    z-index: 30;
+    /* Her şeyin en üstünde */
     padding: 10px;
-    background: rgba(0,0,0,0.1); /* Noktalar belli olsun diye hafif fon */
+    background: rgba(0, 0, 0, 0.1);
+    /* Noktalar belli olsun diye hafif fon */
     border-radius: 20px;
 }
 
@@ -301,7 +341,7 @@ nav {
     position: sticky;
     top: 90px;
     border-radius: 30px;
-    box-shadow: 12px 12px 0px rgba(141,110,99,0.4);
+    box-shadow: 12px 12px 0px rgba(141, 110, 99, 0.4);
 }
 
 .filters-sidebar h3 {
@@ -385,7 +425,7 @@ nav {
     padding: 3rem;
     border: 8px solid #8d6e63;
     border-radius: 30px;
-    box-shadow: 12px 12px 0px rgba(141,110,99,0.4);
+    box-shadow: 12px 12px 0px rgba(141, 110, 99, 0.4);
     margin-top: 2rem;
 }
 
@@ -437,11 +477,13 @@ nav {
     text-align: center;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);
+    box-shadow: 5px 5px 0px rgba(156, 123, 110, 0.4);
     border-radius: 10px;
 }
+
 .category-card p {
-    color: #a1887f; /* İstediğin renk kodu (Hex) veya ismi */
+    color: #a1887f;
+    /* İstediğin renk kodu (Hex) veya ismi */
     /* Opsiyonel diğer ayarlar: */
     font-size: 14px;
     font-weight: normal;
@@ -450,7 +492,7 @@ nav {
 
 .category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 8px 8px 0px rgba(161,136,127,0.6);
+    box-shadow: 8px 8px 0px rgba(161, 136, 127, 0.6);
     border-color: #8d6e63;
 }
 
@@ -478,7 +520,7 @@ nav {
     border: 3px solid #d4a373;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);
+    box-shadow: 5px 5px 0px rgba(156, 123, 110, 0.4);
     border-radius: 10px;
 }
 
@@ -533,17 +575,19 @@ nav {
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .restaurant-preview {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 40%;           /* Kapsayıcının genişliğini tamamen kapla */
-    height: 200px;         /* Tüm görseller aynı yükseklikte olsun */
+    width: 40%;
+    /* Kapsayıcının genişliğini tamamen kapla */
+    height: 200px;
+    /* Tüm görseller aynı yükseklikte olsun */
     border-radius: 8px;
-    
+
 }
 
 .preview-image {
@@ -556,7 +600,8 @@ nav {
     justify-content: center;
     color: #fff;
     font-size: 3rem;
-    align-self: flex-start;   /* SADECE bu öğeyi sağa yaslar */
+    align-self: flex-start;
+    /* SADECE bu öğeyi sağa yaslar */
 }
 
 .map-preview {
@@ -578,7 +623,8 @@ nav {
     border: 3px solid #d4a373;
     margin-top: 2rem;
     border-radius: 10px;
-    box-shadow: 5px 5px 0px rgba(156,123,110,0.4);}
+    box-shadow: 5px 5px 0px rgba(156, 123, 110, 0.4);
+}
 
 .reviews-header {
     display: flex;
@@ -692,63 +738,90 @@ footer {
 }
 
 .category-card img {
-    width: 100%;          /* Force image to fit the card's width */
-    height: 140px;        /* Set a fixed height so all cards are even */
-    object-fit: cover;    /* MAGIC CODE: Crops the image to fit without squishing */
-    border-radius: 8px;   /* Rounds the corners to look nice */
-    display: block;       /* Removes tiny gap below image */
+    width: 100%;
+    /* Force image to fit the card's width */
+    height: 140px;
+    /* Set a fixed height so all cards are even */
+    object-fit: cover;
+    /* MAGIC CODE: Crops the image to fit without squishing */
+    border-radius: 8px;
+    /* Rounds the corners to look nice */
+    display: block;
+    /* Removes tiny gap below image */
 }
 
 
 .filter-icon {
-    width: 90px;  /* İkon kutusunun genişliği */
-    height: 90px; /* İkon kutusunun yüksekliği */
-    border-radius: 0%; /* Yuvarlak olması için */
-    overflow: hidden; /* Fotoğraf taşarsa gizle */
+    background: #e7debf;
+    width: 100%;
+    /* Sabit 90px yerine bulunduğu alanı kaplasın */
+    height: 80px;
+    /* Yükseklik standardı */
+
+    padding: 0;
+    /* İç boşluğu SIFIRLA (Resim kenara yapışsın) */
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
     cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+
+    border-radius: 8px;
+    /* Köşeleri hafif yumuşat */
+    overflow: hidden;
+    /* Dışarı taşan kısımları kes */
 }
 
 .filter-icon img {
-    width: 155%;
-    height: 155%;
-    object-fit: cover; /* Fotoğrafı kutuya sığdırır ve yamulmasını engeller */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Fotoğrafı kutuya sığdırır ve yamulmasını engeller */
 }
 
 /* Aktif olan ikon için stil */
 .filter-icon.active {
-    border-color: #ff9900; /* Örnek aktif rengi */
+    border-color: #ff9900;
+    /* Örnek aktif rengi */
 }
 
 .home-img {
-    width: 45px;  /* İkonun genişliği (isteğe göre 32px veya 48px yapabilirsin) */
-    height: auto; /* Orantıyı koruması için */
-    vertical-align: middle; /* Eğer yanında yazı varsa, yazı ile hizalar */
+    width: 45px;
+    /* İkonun genişliği (isteğe göre 32px veya 48px yapabilirsin) */
+    height: auto;
+    /* Orantıyı koruması için */
+    vertical-align: middle;
+    /* Eğer yanında yazı varsa, yazı ile hizalar */
 }
 
 .home-button {
-    display: flex;          /* Esnek kutu modeli (yan yana dizer) */
-    align-items: center;    /* Dikeyde tam ortalar (resim yukarıda yazı aşağıda kalmaz) */
-    gap: 8px;               /* Resim ile yazı arasındaki boşluk (bunu azaltıp artırabilirsin) */
-    text-decoration: none;  /* Linkin altındaki çizgiyi kaldırır */
+    display: flex;
+    /* Esnek kutu modeli (yan yana dizer) */
+    align-items: center;
+    /* Dikeyde tam ortalar (resim yukarıda yazı aşağıda kalmaz) */
+    gap: 8px;
+    /* Resim ile yazı arasındaki boşluk (bunu azaltıp artırabilirsin) */
+    text-decoration: none;
+    /* Linkin altındaki çizgiyi kaldırır */
 
     color: white;
 }
 
 /* Ekran genişliği 600px'den küçükse (Telefonlar) */
 @media (max-width: 600px) {
-    
+
     /* Home yazısını gizle */
     .home-button span {
-        display: none; 
+        display: none;
     }
 
     /* İstersen ikonu biraz büyütebilirsin parmakla basması kolay olsun diye */
     .home-img {
-        width: 32px; /* Normalde 24px idi, mobilde büyüttük */
+        width: 32px;
+        /* Normalde 24px idi, mobilde büyüttük */
     }
 }
 
@@ -760,17 +833,20 @@ footer {
 /* Arka planı biraz daha kağıt dokusuna benzetelim */
 .about-page-body {
     background-color: var(--bg-creamy);
-    background-image: 
+    background-image:
         linear-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 2px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.5) 2px, transparent 2px);
-    background-size: 50px 50px; /* Kareli defter görünümü */
+    background-size: 50px 50px;
+    /* Kareli defter görünümü */
     background-position: -2px -2px;
 }
 
 /* Hero (Header) Kısmı - Daha kısa */
 .about-hero {
-    height: 400px; /* Ana sayfadan daha kısa */
-    background-image: url('../assets/fonts/img/hero2.jpg'); /* Arka plan resmi */
+    height: 400px;
+    /* Ana sayfadan daha kısa */
+    background-image: url('../assets/fonts/img/hero2.jpg');
+    /* Arka plan resmi */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -783,17 +859,19 @@ footer {
 /* Ana Konteyner (Günlük Defteri) */
 .journal-container {
     max-width: 900px;
-    margin: -50px auto 50px; /* Header'ın üstüne biraz biner */
+    margin: -50px auto 50px;
+    /* Header'ın üstüne biraz biner */
     background: #fff8e7;
     border: 8px solid var(--wood-dark);
     padding: 3rem;
     position: relative;
     z-index: 10;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Vida detayları */
-.journal-container::before, .journal-container::after {
+.journal-container::before,
+.journal-container::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -803,8 +881,14 @@ footer {
     border-radius: 50%;
     top: 20px;
 }
-.journal-container::before { left: 20px; }
-.journal-container::after { right: 20px; }
+
+.journal-container::before {
+    left: 20px;
+}
+
+.journal-container::after {
+    right: 20px;
+}
 
 /* Yazı Stilleri */
 .pixel-heading {
@@ -868,7 +952,7 @@ footer {
 
 .member-card:hover {
     transform: translateY(-10px);
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .member-avatar {
@@ -919,7 +1003,7 @@ footer {
         border-right: none;
         padding: 1.5rem;
     }
-    
+
     .about-hero {
         height: 250px;
     }
@@ -931,26 +1015,116 @@ footer {
 
 /* Login butonu ve ikonları kapsayan kutuyu yatay hizala */
 .auth-buttons {
-    display: flex !important;  /* !important ekledik ki kesin çalışsın */
-    align-items: center;       /* Dikeyde ortala */
-    gap: 15px;                 /* Öğeler arası boşluk */
+    display: flex !important;
+    /* !important ekledik ki kesin çalışsın */
+    align-items: center;
+    /* Dikeyde ortala */
+    gap: 15px;
+    /* Öğeler arası boşluk */
 }
 
 /* Sosyal Medya İkonlarının Ortak Stili */
 .social-btn {
-    color: white;              /* İkon rengi */
-    font-size: 1.4rem;         /* Boyut */
+    color: white;
+    /* İkon rengi */
+    font-size: 1.4rem;
+    /* Boyut */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;     /* Alt çizgiyi kaldır */
+    text-decoration: none;
+    /* Alt çizgiyi kaldır */
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Üzerine gelince efekt */
 .social-btn:hover {
-    color: #d4a373;            /* Senin temandaki sarımsı renk */
-    transform: scale(1.2);     /* Biraz büyüsün */
+    color: #d4a373;
+    /* Senin temandaki sarımsı renk */
+    transform: scale(1.2);
+    /* Biraz büyüsün */
 }
 
+/* ============================================================
+   🛠️ RESTAURANT KARTLARI RESİM HİZALAMA DÜZELTMESİ 🛠️
+   Resimler sağ tarafa tam oturur, yükseklik sorunu kalkar.
+============================================================ */
 
+/* 1. KART YAPISI (Izgara Sistemi) */
+.restaurant-card {
+    display: grid !important;
+    /* Sol taraf esnek (yazı), Sağ taraf sabit 250px (resim) */
+    grid-template-columns: 1fr 250px !important;
+    gap: 0 !important;
+    /* Aradaki boşluğu sıfırladık, çizgilerle ayıracağız */
+
+    align-items: stretch !important;
+    /* Resim ve yazı kutusu eşit boyda olsun */
+    overflow: hidden !important;
+    /* Köşelerden taşmayı engelle */
+    padding: 0 !important;
+    /* İç boşluğu sıfırla, resmi kenara yapıştır */
+
+    /* Kart Yüksekliğini İçeriğe Göre Ayarla */
+    height: auto !important;
+    min-height: 200px !important;
+}
+
+/* 2. SOL TARAFA (Yazı Alanı) BOŞLUK VERELİM */
+.restaurant-info {
+    padding: 2rem !important;
+    /* Yazılar kenara yapışmasın */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Dikeyde ortala */
+}
+
+/* 3. SAĞ TARAF (Resim Kutusu) */
+.restaurant-preview {
+    width: 100% !important;
+    height: auto !important;
+    /* Otomatik yükseklik */
+    min-height: 100% !important;
+    /* Kart boyunca uzasın */
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+}
+
+/* 4. RESMİN KENDİSİ (Jilet Gibi Hiza) */
+.restaurant-preview img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    /* Resmi kutuya tam doldur, asla yamultma */
+    display: block !important;
+    border-radius: 0 !important;
+    /* İçeride köşe yuvarlama olmasın */
+
+    /* Resim ile Yazı arasına dikey çizgi */
+    border: none !important;
+    border-left: 3px solid #d4a373 !important;
+}
+
+/* 5. MOBİL UYUMLULUK (Telefonda Alt Alta) */
+@media (max-width: 768px) {
+    .restaurant-card {
+        grid-template-columns: 1fr !important;
+        /* Tek sütun */
+        grid-template-rows: 200px auto !important;
+        /* Üstte resim, altta yazı */
+    }
+
+    .restaurant-preview {
+        order: -1;
+        /* Resmi en başa al */
+        height: 100% !important;
+    }
+
+    .restaurant-preview img {
+        border-left: none !important;
+        border-bottom: 3px solid #d4a373 !important;
+        /* Mobilde alta çizgi */
+    }
+}
